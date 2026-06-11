@@ -1,0 +1,426 @@
+@baseUrl = http://localhost:5000/api
+@adminEmail = admin@supermarket.com
+@adminPassword = Admin12345
+@userEmail = user@supermarket.com
+@userPassword = User12345
+@barcode = 6251000000012
+@bootstrapKey = {{$dotenv BOOTSTRAP_ADMIN_KEY}}
+
+### Health check
+GET {{baseUrl}}/health
+
+### Bootstrap admin
+# @name bootstrapAdmin
+POST {{baseUrl}}/auth/bootstrap-admin
+Content-Type: application/json
+
+{
+  "name": "System Admin",
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}",
+  "bootstrapKey": "{{bootstrapKey}}"
+}
+
+### Register first account as admin
+# @name registerAdmin
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "System Admin",
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}",
+  "phone": "0790000001",
+  "address": "Amman"
+}
+
+### Login admin
+# @name loginAdmin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}"
+}
+
+### Register user
+# @name registerUser
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Normal User",
+  "email": "{{userEmail}}",
+  "password": "{{userPassword}}",
+  "phone": "0790000002",
+  "address": "Irbid"
+}
+
+### Login user
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{userEmail}}",
+  "password": "{{userPassword}}"
+}
+
+### Admin profile
+GET {{baseUrl}}/auth/profile
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update admin profile
+PUT {{baseUrl}}/auth/profile
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Updated Admin",
+  "phone": "0791111111",
+  "address": "Amman - Downtown"
+}
+
+### Change password
+PUT {{baseUrl}}/auth/change-password
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "currentPassword": "{{userPassword}}",
+  "newPassword": "{{userPassword}}"
+}
+
+### Forgot password
+POST {{baseUrl}}/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "{{userEmail}}"
+}
+
+### Reset password
+POST {{baseUrl}}/auth/reset-password
+Content-Type: application/json
+
+{
+  "email": "{{userEmail}}",
+  "otp": "PUT_OTP_FROM_FORGOT_PASSWORD_RESPONSE",
+  "newPassword": "{{userPassword}}"
+}
+
+### Create category
+# @name createCategory
+POST {{baseUrl}}/categories
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Drinks",
+  "description": "Cold and hot drinks"
+}
+
+### Get categories
+GET {{baseUrl}}/categories
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update category
+PUT {{baseUrl}}/categories/{{createCategory.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "description": "Updated drinks category"
+}
+
+### Create product with barcode
+# @name createProduct
+POST {{baseUrl}}/products
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Orange Juice",
+  "barcode": "{{barcode}}",
+  "category": "Drinks",
+  "description": "Fresh orange juice",
+  "imageUrl": "https://example.com/orange-juice.jpg",
+  "price": 1.5,
+  "quantity": 50,
+  "minimumStock": 10,
+  "discountPercent": 5
+}
+
+### Get products
+GET {{baseUrl}}/products
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Search products
+GET {{baseUrl}}/products?search=juice&category=Drinks&minPrice=1&maxPrice=5
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Product autocomplete
+GET {{baseUrl}}/products/autocomplete?q=ora
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Barcode lookup
+# @name barcodeLookup
+GET {{baseUrl}}/products/barcode/{{barcode}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Get product by id
+GET {{baseUrl}}/products/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update product stock
+PUT {{baseUrl}}/products/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "quantity": 25,
+  "minimumStock": 8
+}
+
+### Low stock products
+GET {{baseUrl}}/products/low-stock
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Add product to cart
+# @name addCart
+POST {{baseUrl}}/cart
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "productId": "{{createProduct.response.body.$._id}}",
+  "quantity": 2
+}
+
+### Get user cart
+GET {{baseUrl}}/cart
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+### Update cart item quantity
+PUT {{baseUrl}}/cart/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "quantity": 3
+}
+
+### Remove item from cart
+DELETE {{baseUrl}}/cart/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+### Add product to cart again
+POST {{baseUrl}}/cart
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "productId": "{{createProduct.response.body.$._id}}",
+  "quantity": 2
+}
+
+### Create cash order from cart
+# @name createCashOrder
+POST {{baseUrl}}/orders
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "useCart": true,
+  "customerName": "Normal User",
+  "paymentMethod": "cash",
+  "deliveryAddress": "Irbid"
+}
+
+### Pay cash order with fake card
+# @name payOrder
+POST {{baseUrl}}/payments
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "orderId": "{{createCashOrder.response.body.$.order._id}}",
+  "method": "fake_card"
+}
+
+### Get payments
+GET {{baseUrl}}/payments
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Create fake-card order directly
+# @name createPaidOrder
+POST {{baseUrl}}/orders
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "{{createProduct.response.body.$._id}}",
+      "quantity": 1
+    }
+  ],
+  "customerName": "Normal User",
+  "paymentMethod": "fake_card"
+}
+
+### Get orders
+GET {{baseUrl}}/orders
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Get order by id
+GET {{baseUrl}}/orders/{{createPaidOrder.response.body.$.order._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update order status
+PUT {{baseUrl}}/orders/{{createPaidOrder.response.body.$.order._id}}/status
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "status": "completed",
+  "deliveryStatus": "delivered",
+  "paymentStatus": "paid"
+}
+
+### Cancel order
+PUT {{baseUrl}}/orders/{{createPaidOrder.response.body.$.order._id}}/cancel
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Create customer
+# @name createCustomer
+POST {{baseUrl}}/customers
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Cash Customer",
+  "phone": "0793333333",
+  "email": "customer@example.com",
+  "address": "Zarqa",
+  "favoriteCategory": "Drinks"
+}
+
+### Get customers
+GET {{baseUrl}}/customers
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Get customer by id
+GET {{baseUrl}}/customers/{{createCustomer.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update customer
+PUT {{baseUrl}}/customers/{{createCustomer.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "address": "Zarqa - New Address"
+}
+
+### Update customer loyalty points
+PUT {{baseUrl}}/customers/{{createCustomer.response.body.$._id}}/points
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "points": 10
+}
+
+### Create coupon
+# @name createCoupon
+POST {{baseUrl}}/coupons
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "code": "SAVE10",
+  "discountPercent": 10,
+  "usageLimit": 100,
+  "isActive": true
+}
+
+### Validate coupon
+POST {{baseUrl}}/coupons/validate
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "code": "SAVE10",
+  "subtotal": 20
+}
+
+### Get coupons
+GET {{baseUrl}}/coupons
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update coupon
+PUT {{baseUrl}}/coupons/{{createCoupon.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "discountPercent": 15
+}
+
+### Create review
+# @name createReview
+POST {{baseUrl}}/reviews
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "product": "{{createProduct.response.body.$._id}}",
+  "rating": 5,
+  "comment": "Excellent product"
+}
+
+### Get product reviews
+GET {{baseUrl}}/reviews/product/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+### Dashboard summary
+GET {{baseUrl}}/dashboard
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Inventory predictions
+GET {{baseUrl}}/predictions/inventory
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Get notifications
+GET {{baseUrl}}/notifications
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Mark all notifications read
+PUT {{baseUrl}}/notifications/read-all
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Clear cart
+DELETE {{baseUrl}}/cart
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+### Delete review
+DELETE {{baseUrl}}/reviews/{{createReview.response.body.$._id}}
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+### Delete coupon
+DELETE {{baseUrl}}/coupons/{{createCoupon.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Delete customer
+DELETE {{baseUrl}}/customers/{{createCustomer.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Delete product
+DELETE {{baseUrl}}/products/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Delete category
+DELETE {{baseUrl}}/categories/{{createCategory.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
