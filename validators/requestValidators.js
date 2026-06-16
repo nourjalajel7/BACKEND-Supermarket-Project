@@ -33,6 +33,15 @@ const resetPasswordValidator = validate([
   rule("New password must be at least 6 characters", (body) => validators.required("newPassword")(body) && validators.minLength("newPassword", 6)(body))
 ]);
 
+const requestEmailVerificationValidator = validate([
+  rule("Valid email is required", (body) => validators.required("email")(body) && validators.email("email")(body))
+]);
+
+const verifyEmailValidator = validate([
+  rule("Valid email is required", (body) => validators.required("email")(body) && validators.email("email")(body)),
+  rule("OTP is required", validators.required("otp"))
+]);
+
 const createCategoryValidator = validate([
   rule("Category name is required", validators.required("name"))
 ]);
@@ -104,6 +113,38 @@ const reviewValidator = validate([
   rule("Rating must be between 1 and 5", (body) => validators.number("rating")(body) && validators.min("rating", 1)(body) && validators.max("rating", 5)(body))
 ]);
 
+const supplierValidator = validate([
+  rule("Supplier name is required", validators.required("name")),
+  rule("Supplier category is required", validators.required("category")),
+  rule("Supplier contact is required", validators.required("contact")),
+  rule("Order multiple must be a positive number", (body) => body.orderMultiple === undefined || (validators.number("orderMultiple")(body) && validators.min("orderMultiple", 1)(body)))
+]);
+
+const employeeValidator = validate([
+  rule("Employee name is required", validators.required("name")),
+  rule("Employee role is required", validators.required("role")),
+  rule("Employee contact is required", validators.required("contact")),
+  rule("Salary must be greater than or equal to 0", (body) => validators.number("salary")(body) && validators.min("salary", 0)(body))
+]);
+
+const preferenceValidator = validate([
+  rule("Fulfillment must be pickup or delivery", validators.oneOf("fulfillment", ["pickup", "delivery"])),
+  rule("Health preferences must be an object", (body) => body.health === undefined || (body.health && typeof body.health === "object" && !Array.isArray(body.health)))
+]);
+
+const rewardValidator = validate([
+  rule("Reward title is required", validators.required("title")),
+  rule("Reward points must be greater than 0", (body) => validators.number("points")(body) && validators.min("points", 1)(body)),
+  rule("Reward type is invalid", validators.oneOf("type", ["fixed", "percent", "delivery"])),
+  rule("Reward value must be greater than or equal to 0", (body) => validators.number("value")(body) && validators.min("value", 0)(body))
+]);
+
+const expenseValidator = validate([
+  rule("Expense name is required", validators.required("name")),
+  rule("Expense category is required", validators.required("category")),
+  rule("Expense amount must be greater than or equal to 0", (body) => validators.number("amount")(body) && validators.min("amount", 0)(body))
+]);
+
 module.exports = {
   registerValidator,
   bootstrapAdminValidator,
@@ -111,6 +152,8 @@ module.exports = {
   changePasswordValidator,
   forgotPasswordValidator,
   resetPasswordValidator,
+  requestEmailVerificationValidator,
+  verifyEmailValidator,
   createCategoryValidator,
   createProductValidator,
   updateProductValidator,
@@ -123,5 +166,10 @@ module.exports = {
   customerPointsValidator,
   couponValidator,
   validateCouponValidator,
-  reviewValidator
+  reviewValidator,
+  supplierValidator,
+  employeeValidator,
+  preferenceValidator,
+  rewardValidator,
+  expenseValidator
 };

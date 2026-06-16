@@ -76,13 +76,32 @@ const getAssociationRecommendations = async (payload) => {
   }
 
   return requestJson({
-    path: "/recommend",
+    path: "/recommend-products",
     payload: {
-      items: payload.items
+      items: payload.items,
+      top_n: payload.top_n
+    }
+  });
+};
+
+const getCategoryAssociationRecommendations = async (payload) => {
+  if (!Array.isArray(payload.categories)) {
+    const error = new Error("categories must be an array");
+    error.statusCode = 400;
+    error.errors = { missing_fields: ["categories"] };
+    throw error;
+  }
+
+  return requestJson({
+    path: "/recommend-categories",
+    payload: {
+      categories: payload.categories,
+      top_n: payload.top_n
     }
   });
 };
 
 module.exports = {
-  getAssociationRecommendations
+  getAssociationRecommendations,
+  getCategoryAssociationRecommendations
 };

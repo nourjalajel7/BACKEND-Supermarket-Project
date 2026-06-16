@@ -19,7 +19,7 @@ const FEATURES = [
 const REQUIRED_STOCK_FORECAST_FIELDS = [...FEATURES, "Current_Stock", "Safety_Stock"];
 
 const getForecastApiBaseUrl = () => {
-  return process.env.INVENTORY_FORECAST_API_URL || "http://127.0.0.1:5000";
+  return process.env.INVENTORY_FORECAST_API_URL || process.env.ASSOCIATION_API_URL || "http://127.0.0.1:5001";
 };
 
 const requestJson = ({ path, payload }) => {
@@ -85,17 +85,15 @@ const requestJson = ({ path, payload }) => {
 };
 
 const predictStockWithForecastApi = async (payload) => {
-  const missingFields = REQUIRED_STOCK_FORECAST_FIELDS.filter((field) => payload[field] === undefined || payload[field] === null);
-
-  if (missingFields.length) {
-    const error = new Error("Missing required fields");
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    const error = new Error("Prediction payload must be a JSON object");
     error.statusCode = 400;
-    error.errors = { missing_fields: missingFields };
+    error.errors = { expected_body: "object" };
     throw error;
   }
 
   return requestJson({
-    path: "/predict-stock",
+    path: "/api/predict",
     payload
   });
 };

@@ -7,7 +7,8 @@ const {
   deleteProduct,
   getLowStockProducts,
   getProductByBarcode,
-  autocompleteProducts
+  autocompleteProducts,
+  getProductSalesHistory
 } = require("../controllers/productController");
 const { protect, authorizeRoles } = require("../middleware/authMiddleware");
 const { createProductValidator, updateProductValidator } = require("../validators/requestValidators");
@@ -18,6 +19,7 @@ router.get("/", protect, getProducts);
 router.get("/autocomplete", protect, autocompleteProducts);
 router.get("/low-stock", protect, authorizeRoles("admin", "manager", "employee"), getLowStockProducts);
 router.get("/barcode/:barcode", protect, getProductByBarcode);
+router.get("/:id/sales-history", protect, authorizeRoles("admin", "manager"), getProductSalesHistory);
 router.get("/:id", protect, getProductById);
 router.post("/", protect, authorizeRoles("admin", "manager"), createProductValidator, createProduct);
 router.put("/:id", protect, authorizeRoles("admin", "manager"), updateProductValidator, updateProduct);

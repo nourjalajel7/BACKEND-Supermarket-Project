@@ -7,6 +7,9 @@ const sanitizeUser = (user) => ({
   role: user.role,
   phone: user.phone,
   address: user.address,
+  loyaltyPoints: user.loyaltyPoints,
+  membershipLevel: user.membershipLevel,
+  preferences: user.preferences,
   createdAt: user.createdAt
 });
 

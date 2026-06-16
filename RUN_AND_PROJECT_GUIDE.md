@@ -20,6 +20,7 @@
 - التقييمات
 - Dashboard analytics
 - Inventory predictions
+
 - OTP password reset
 - Health check
 - Validation
@@ -128,7 +129,7 @@ MongoDB connected
 Base URL:
 
 ```text
-http://localhost:5000/api
+https://backend-supermarket-project-1.onrender.com/api
 ```
 
 ## 7. Health Check
@@ -136,7 +137,7 @@ http://localhost:5000/api
 افحص حالة السيرفر وقاعدة البيانات:
 
 ```http
-GET http://localhost:5000/api/health
+GET https://backend-supermarket-project-1.onrender.com/api/health
 ```
 
 Response المتوقع:
@@ -644,7 +645,7 @@ postman_collection.json
 جهز environment variables:
 
 ```text
-baseUrl=http://localhost:5000/api
+baseUrl=https://backend-supermarket-project-1.onrender.com/api
 bootstrapKey=BOOTSTRAP_ADMIN_KEY_FROM_ENV
 adminEmail=admin@supermarket.com
 adminPassword=Admin12345
@@ -676,7 +677,7 @@ npm start
 ثم افحص:
 
 ```http
-GET http://localhost:5000/api/health
+GET https://backend-supermarket-project-1.onrender.com/api/health
 ```
 
 ## 29. أهم الملفات

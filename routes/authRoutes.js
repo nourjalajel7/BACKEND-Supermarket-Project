@@ -3,6 +3,8 @@ const {
   register,
   bootstrapAdmin,
   login,
+  requestEmailVerification,
+  verifyEmail,
   getProfile,
   updateProfile,
   changePassword,
@@ -18,7 +20,9 @@ const {
   loginValidator,
   changePasswordValidator,
   forgotPasswordValidator,
-  resetPasswordValidator
+  resetPasswordValidator,
+  requestEmailVerificationValidator,
+  verifyEmailValidator
 } = require("../validators/requestValidators");
 
 const router = express.Router();
@@ -26,6 +30,8 @@ const router = express.Router();
 router.post("/register", registerValidator, register);
 router.post("/bootstrap-admin", bootstrapAdminValidator, bootstrapAdmin);
 router.post("/login", loginRateLimit, loginValidator, login);
+router.post("/request-email-verification", requestEmailVerificationValidator, requestEmailVerification);
+router.post("/verify-email", verifyEmailValidator, verifyEmail);
 router.post("/forgot-password", forgotPasswordValidator, forgotPassword);
 router.post("/reset-password", resetPasswordValidator, resetPassword);
 router.get("/profile", protect, getProfile);

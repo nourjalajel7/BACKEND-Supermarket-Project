@@ -203,6 +203,58 @@
       ]
     },
     {
+      "name": "Frontend Integration",
+      "item": [
+        {
+          "name": "Get Suppliers",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/suppliers"
+          }
+        },
+        {
+          "name": "Employee Coverage",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/employees/summary?day=Mon"
+          }
+        },
+        {
+          "name": "Customer Preferences",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{userToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fulfillment\": \"delivery\",\n  \"health\": {\n    \"diabetes\": true,\n    \"gluten\": true,\n    \"peanut\": false,\n    \"lowSodium\": false,\n    \"vegan\": false\n  }\n}"
+            },
+            "url": "{{baseUrl}}/preferences"
+          }
+        },
+        {
+          "name": "Sales Report",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/reports/sales"
+          }
+        },
+        {
+          "name": "Finance Summary",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{adminToken}}" }],
+            "url": "{{baseUrl}}/finance/summary"
+          }
+        }
+      ]
+    },
+    {
       "name": "Dashboard",
       "item": [
         {
@@ -225,7 +277,7 @@
     }
   ],
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:5000/api" },
+    { "key": "baseUrl", "value": "https://backend-supermarket-project-1.onrender.com/api" },
     { "key": "bootstrapKey", "value": "" },
     { "key": "adminEmail", "value": "admin@supermarket.com" },
     { "key": "adminPassword", "value": "Admin12345" },

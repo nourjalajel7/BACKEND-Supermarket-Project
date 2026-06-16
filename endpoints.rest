@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:5000/api
+@baseUrl = https://backend-supermarket-project-1.onrender.com/api
 @adminEmail = admin@supermarket.com
 @adminPassword = Admin12345
 @userEmail = user@supermarket.com
@@ -55,6 +55,24 @@ Content-Type: application/json
   "password": "{{userPassword}}",
   "phone": "0790000002",
   "address": "Irbid"
+}
+
+### Request email verification OTP
+POST {{baseUrl}}/auth/request-email-verification
+Content-Type: application/json
+
+{
+  "email": "{{userEmail}}"
+}
+
+### Verify email
+# @name verifyUserEmail
+POST {{baseUrl}}/auth/verify-email
+Content-Type: application/json
+
+{
+  "email": "{{userEmail}}",
+  "otp": "PUT_OTP_FROM_EMAIL_RESPONSE_OR_INBOX"
 }
 
 ### Login user
@@ -392,6 +410,86 @@ Authorization: Bearer {{loginAdmin.response.body.$.token}}
 ### Inventory predictions
 GET {{baseUrl}}/predictions/inventory
 Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Create supplier
+# @name createSupplier
+POST {{baseUrl}}/suppliers
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Frozen Food Hub",
+  "category": "Frozen Foods",
+  "contact": "079-777-8800",
+  "leadTime": "2 days",
+  "status": "Active",
+  "orderMultiple": 12
+}
+
+### Supplier restock recommendation
+GET {{baseUrl}}/suppliers/restock/{{createProduct.response.body.$._id}}
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Create employee
+# @name createEmployee
+POST {{baseUrl}}/employees
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "name": "Maria Garcia",
+  "role": "Cashier",
+  "contact": "maria@smartmarket.com",
+  "shift": "Morning",
+  "status": "Active",
+  "salary": 700,
+  "weekly": {
+    "Mon": "8 AM - 2 PM",
+    "Tue": "8 AM - 2 PM",
+    "Wed": "8 AM - 2 PM",
+    "Thu": "Off",
+    "Fri": "8 AM - 2 PM",
+    "Sat": "10 AM - 6 PM",
+    "Sun": "Off"
+  }
+}
+
+### Employee coverage
+GET {{baseUrl}}/employees/summary?day=Mon
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Update customer preferences
+PUT {{baseUrl}}/preferences
+Authorization: Bearer {{loginUser.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "fulfillment": "delivery",
+  "health": {
+    "diabetes": true,
+    "gluten": true,
+    "peanut": false,
+    "lowSodium": false,
+    "vegan": false
+  }
+}
+
+### Sales report
+GET {{baseUrl}}/reports/sales
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Finance summary
+GET {{baseUrl}}/finance/summary
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+
+### Import products CSV
+POST {{baseUrl}}/products-csv
+Authorization: Bearer {{loginAdmin.response.body.$.token}}
+Content-Type: application/json
+
+{
+  "csv": "product_id,category,product_name,image_url,barcode,price_jd,stock_quantity,minimum_stock,health_tags,supplier_id\n1,Frozen Foods,Nabil Pizza Chicken 400 Gram,/images/products/pizza.jpg,614256845007,2.49,30,25,\"gluten,high_sodium\",Frozen Food Hub"
+}
 
 ### Get notifications
 GET {{baseUrl}}/notifications

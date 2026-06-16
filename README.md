@@ -33,6 +33,8 @@ MONGO_URI=mongodb://127.0.0.1:27017/smart_supermarket
 JWT_SECRET=your_strong_jwt_secret
 JWT_EXPIRES_IN=7d
 BOOTSTRAP_ADMIN_KEY=your_strong_bootstrap_key
+FRONTEND_URLS=http://127.0.0.1:5173,http://127.0.0.1:5174
+DELIVERY_FEE=2
 LOGIN_RATE_LIMIT_WINDOW_MS=900000
 LOGIN_RATE_LIMIT_MAX=5
 OTP_EXPOSE_IN_RESPONSE=false
@@ -65,7 +67,7 @@ npm run dev
 Base URL:
 
 ```text
-http://localhost:5000/api
+https://backend-supermarket-project-1.onrender.com/api
 ```
 
 ## Environment Variables
@@ -86,6 +88,8 @@ http://localhost:5000/api
 | `SMTP_USER` | Depends on provider | SMTP username. |
 | `SMTP_PASS` | Depends on provider | SMTP password or app password. |
 | `SMTP_FROM` | Yes for email OTP | Sender email address. |
+| `FRONTEND_URLS` | No | Comma-separated allowed frontend origins. All origins are allowed when empty. |
+| `DELIVERY_FEE` | No | Default delivery fee. Defaults to `2`. |
 
 Do not commit `.env`. It is ignored by `.gitignore`.
 
@@ -125,6 +129,8 @@ Authorization: Bearer <token>
 | `POST` | `/api/auth/bootstrap-admin` | Public with bootstrap key |
 | `POST` | `/api/auth/register` | Public |
 | `POST` | `/api/auth/login` | Public |
+| `POST` | `/api/auth/request-email-verification` | Public |
+| `POST` | `/api/auth/verify-email` | Public |
 | `GET` | `/api/auth/profile` | Authenticated |
 | `PUT` | `/api/auth/profile` | Authenticated |
 | `PUT` | `/api/auth/change-password` | Authenticated |
@@ -132,6 +138,13 @@ Authorization: Bearer <token>
 | `POST` | `/api/auth/reset-password` | Public |
 
 Forgot password sends the OTP through SMTP when email settings are configured. If SMTP settings are empty, the endpoint still generates an OTP and returns `emailSent: false`. For local development only, set `OTP_EXPOSE_IN_RESPONSE=true` to show the OTP in the response.
+
+Email verification flow:
+
+1. `POST /api/auth/register` creates the user, sends a 6-digit OTP, and returns `requiresEmailVerification: true` without a token.
+2. `POST /api/auth/verify-email` with `{ "email": "...", "otp": "..." }` verifies the email and returns the JWT token.
+3. `POST /api/auth/login` returns a token only for verified users. If the email is not verified, it sends a fresh OTP and returns `requiresEmailVerification: true`.
+4. `POST /api/auth/request-email-verification` resends the verification OTP.
 
 ### Health
 
@@ -199,6 +212,38 @@ Cash orders start with `paymentStatus: "pending"`. Paying later with `fake_card`
 | Dashboard | `/api/dashboard` |
 | Predictions | `/api/predictions/inventory` |
 | Notifications | `/api/notifications` |
+| Suppliers | `/api/suppliers` |
+| Employees | `/api/employees` |
+| Reports | `/api/reports/sales` |
+| Finance | `/api/finance/summary` |
+| Expenses | `/api/finance/expenses` |
+
+### Frontend Integration APIs
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET`, `PUT` | `/api/preferences` | Customer fulfillment and health settings |
+| `GET` | `/api/rewards` | Active loyalty rewards |
+| `GET` | `/api/rewards/account` | Points, membership level, and activity |
+| `GET` | `/api/orders/:id/tracking` | Delivery driver and progress data |
+| `GET` | `/api/products/:id/sales-history` | Product chart history |
+| `GET` | `/api/products-csv` | Download inventory as CSV |
+| `POST` | `/api/products-csv` | Import or synchronize the frontend CSV |
+| `GET` | `/api/suppliers/restock/:productId` | Preferred supplier and suggested quantity |
+
+Frontend product field mapping:
+
+| Frontend | Backend |
+| --- | --- |
+| `id` | `_id` |
+| `sku` | `barcode` |
+| `stock` | `quantity` |
+| `min` | `minimumStock` |
+| `image` | `imageUrl` |
+| `tags` | `healthTags` |
+| `grade` | `nutritionGrade` |
+
+Checkout can send `fulfillment`, `deliveryAddress`, `rewardId`, `couponCode`, and either `products` or `useCart: true` to `POST /api/orders`.
 
 ## Validation
 
@@ -249,7 +294,7 @@ postman_collection.json
 Required Postman environment variables:
 
 ```text
-baseUrl=http://localhost:5000/api
+baseUrl=https://backend-supermarket-project-1.onrender.com/api
 bootstrapKey=<your BOOTSTRAP_ADMIN_KEY>
 adminEmail=admin@supermarket.com
 adminPassword=Admin12345

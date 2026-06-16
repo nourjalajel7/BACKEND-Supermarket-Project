@@ -15,9 +15,49 @@ const sanitizeUser = (user) => ({
   role: user.role,
   phone: user.phone,
   address: user.address,
+  loyaltyPoints: user.loyaltyPoints,
+  membershipLevel: user.membershipLevel,
+  preferences: user.preferences,
+  isEmailVerified: user.isEmailVerified,
 });
 
 const normalizeEmail = (email) => email.trim().toLowerCase();
+const createOtp = () => Math.floor(100000 + Math.random() * 900000).toString();
+
+const setEmailVerificationOtp = async (user) => {
+  const otp = createOtp();
+  user.emailVerificationOtp = otp;
+  user.emailVerificationOtpExpires = new Date(Date.now() + 10 * 60 * 1000);
+  await user.save();
+  return otp;
+};
+
+const sendEmailVerificationOtp = async (user) => {
+  const otp = await setEmailVerificationOtp(user);
+  const emailSent = isEmailConfigured();
+
+  if (emailSent) {
+    await sendOtpEmail({
+      to: user.email,
+      otp,
+      purpose: "email-verification",
+    });
+  }
+
+  const response = {
+    message: emailSent
+      ? "Email verification OTP sent successfully"
+      : "Email verification OTP generated but email service is not configured",
+    emailSent,
+    requiresEmailVerification: true,
+  };
+
+  if (process.env.OTP_EXPOSE_IN_RESPONSE === "true") {
+    response.otp = otp;
+  }
+
+  return response;
+};
 
 // Register a new user
 const register = async (req, res) => {
@@ -46,11 +86,11 @@ const register = async (req, res) => {
       address,
       role: adminsCount === 0 ? "admin" : "user",
     });
-    const token = createToken(user);
+    const otpResponse = await sendEmailVerificationOtp(user);
 
     res.status(201).json({
-      message: "User registered successfully",
-      token,
+      ...otpResponse,
+      message: "User registered successfully. Please verify your email to continue.",
       user: sanitizeUser(user),
     });
   } catch (error) {
@@ -80,9 +120,20 @@ const bootstrapAdmin = async (req, res) => {
       user.name = name;
       user.password = password;
       user.role = "admin";
+      user.isEmailVerified = true;
+      user.emailVerifiedAt = new Date();
+      user.emailVerificationOtp = undefined;
+      user.emailVerificationOtpExpires = undefined;
       await user.save();
     } else {
-      user = await User.create({ name, email, password, role: "admin" });
+      user = await User.create({
+        name,
+        email,
+        password,
+        role: "admin",
+        isEmailVerified: true,
+        emailVerifiedAt: new Date(),
+      });
     }
 
     const token = createToken(user);
@@ -115,6 +166,15 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
+    if (!user.isEmailVerified) {
+      const otpResponse = await sendEmailVerificationOtp(user);
+      return res.status(403).json({
+        ...otpResponse,
+        message: "Email verification is required before login",
+        user: sanitizeUser(user),
+      });
+    }
+
     const token = createToken(user);
 
     res.json({
@@ -124,6 +184,68 @@ const login = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// Request email verification OTP
+const requestEmailVerification = async (req, res) => {
+  try {
+    const email = req.body.email ? normalizeEmail(req.body.email) : "";
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.isEmailVerified) {
+      return res.json({
+        message: "Email is already verified",
+        requiresEmailVerification: false,
+        user: sanitizeUser(user),
+      });
+    }
+
+    const otpResponse = await sendEmailVerificationOtp(user);
+
+    res.json({
+      ...otpResponse,
+      user: sanitizeUser(user),
+    });
+  } catch (error) {
+    res.status(error.statusCode || 500).json({ message: error.message });
+  }
+};
+
+// Verify email using OTP and issue token
+const verifyEmail = async (req, res) => {
+  try {
+    const { otp } = req.body;
+    const email = req.body.email ? normalizeEmail(req.body.email) : "";
+    const user = await User.findOne({
+      email,
+      emailVerificationOtp: otp,
+      emailVerificationOtpExpires: { $gt: new Date() },
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
+
+    user.isEmailVerified = true;
+    user.emailVerifiedAt = new Date();
+    user.emailVerificationOtp = undefined;
+    user.emailVerificationOtpExpires = undefined;
+    await user.save();
+
+    const token = createToken(user);
+
+    res.json({
+      message: "Email verified successfully",
+      token,
+      user: sanitizeUser(user),
+    });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 };
 
@@ -183,7 +305,7 @@ const forgotPassword = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otp = createOtp();
     user.resetOtp = otp;
     user.resetOtpExpires = new Date(Date.now() + 10 * 60 * 1000);
     await user.save();
@@ -240,6 +362,8 @@ module.exports = {
   register,
   bootstrapAdmin,
   login,
+  requestEmailVerification,
+  verifyEmail,
   getProfile,
   updateProfile,
   changePassword,

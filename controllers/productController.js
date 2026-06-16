@@ -65,7 +65,7 @@ const getProducts = async (req, res) => {
     }
 
     const skip = (Number(page) - 1) * Number(limit);
-    const products = await Product.find(filter).populate("categoryRef").sort(sort).skip(skip).limit(Number(limit));
+    const products = await Product.find(filter).populate("categoryRef supplier").sort(sort).skip(skip).limit(Number(limit));
     const total = await Product.countDocuments(filter);
 
     res.json({ products, total, page: Number(page), pages: Math.ceil(total / Number(limit)) || 1 });
@@ -76,7 +76,7 @@ const getProducts = async (req, res) => {
 
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate("categoryRef");
+    const product = await Product.findById(req.params.id).populate("categoryRef supplier");
 
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
@@ -156,7 +156,7 @@ const deleteProduct = async (req, res) => {
 
 const getLowStockProducts = async (req, res) => {
   try {
-    const products = await Product.find({ $expr: { $lte: ["$quantity", "$minimumStock"] } }).populate("categoryRef");
+    const products = await Product.find({ $expr: { $lte: ["$quantity", "$minimumStock"] } }).populate("categoryRef supplier");
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -165,7 +165,7 @@ const getLowStockProducts = async (req, res) => {
 
 const getProductByBarcode = async (req, res) => {
   try {
-    const product = await Product.findOne({ barcode: req.params.barcode }).populate("categoryRef");
+    const product = await Product.findOne({ barcode: req.params.barcode }).populate("categoryRef supplier");
 
     if (!product) {
       return res.status(404).json({ message: "Product not found for this barcode" });
@@ -195,6 +195,36 @@ const autocompleteProducts = async (req, res) => {
   }
 };
 
+const getProductSalesHistory = async (req, res) => {
+  try {
+    const Order = require("../models/orderModel");
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    const history = await Order.aggregate([
+      { $match: { status: { $ne: "cancelled" }, "products.product": product._id } },
+      { $unwind: "$products" },
+      { $match: { "products.product": product._id } },
+      {
+        $group: {
+          _id: { $dateToString: { format: "%Y-%m", date: "$createdAt" } },
+          sold: { $sum: "$products.quantity" },
+          revenue: { $sum: "$products.subtotal" }
+        }
+      },
+      { $sort: { _id: 1 } },
+      { $limit: 12 }
+    ]);
+
+    res.json({
+      product,
+      history: history.map((item) => ({ name: item._id, sold: item.sold, revenue: item.revenue }))
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProducts,
   getProductById,
@@ -203,5 +233,6 @@ module.exports = {
   deleteProduct,
   getLowStockProducts,
   getProductByBarcode,
-  autocompleteProducts
+  autocompleteProducts,
+  getProductSalesHistory
 };

@@ -9,6 +9,22 @@ const userSchema = new mongoose.Schema(
     role: { type: String, enum: ["admin", "manager", "employee", "user"], default: "user" },
     phone: { type: String, trim: true },
     address: { type: String, trim: true },
+    loyaltyPoints: { type: Number, default: 0, min: 0 },
+    membershipLevel: { type: String, enum: ["Bronze", "Silver", "Gold"], default: "Bronze" },
+    preferences: {
+      fulfillment: { type: String, enum: ["pickup", "delivery"], default: "pickup" },
+      health: {
+        diabetes: { type: Boolean, default: false },
+        gluten: { type: Boolean, default: false },
+        peanut: { type: Boolean, default: false },
+        lowSodium: { type: Boolean, default: false },
+        vegan: { type: Boolean, default: false }
+      }
+    },
+    isEmailVerified: { type: Boolean, default: false },
+    emailVerifiedAt: { type: Date },
+    emailVerificationOtp: { type: String },
+    emailVerificationOtpExpires: { type: Date },
     resetOtp: { type: String },
     resetOtpExpires: { type: Date }
   },

@@ -1,6 +1,9 @@
 const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
-const { getAssociationRecommendations } = require("../services/associationRecommendationService");
+const {
+  getAssociationRecommendations,
+  getCategoryAssociationRecommendations
+} = require("../services/associationRecommendationService");
 const { predictStockWithForecastApi } = require("../services/inventoryForecastService");
 
 const getInventoryPredictions = async (req, res) => {
@@ -74,8 +77,21 @@ const recommendProducts = async (req, res) => {
   }
 };
 
+const recommendCategories = async (req, res) => {
+  try {
+    const recommendations = await getCategoryAssociationRecommendations(req.body);
+    res.json(recommendations);
+  } catch (error) {
+    res.status(error.statusCode || 500).json({
+      message: error.message,
+      errors: error.errors
+    });
+  }
+};
+
 module.exports = {
   getInventoryPredictions,
   recommendProducts,
+  recommendCategories,
   predictStock
 };

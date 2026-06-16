@@ -5,6 +5,8 @@ const Customer = require("../models/customerModel");
 const Coupon = require("../models/couponModel");
 const Payment = require("../models/paymentModel");
 const Notification = require("../models/notificationModel");
+const Reward = require("../models/rewardModel");
+const LoyaltyTransaction = require("../models/loyaltyTransactionModel");
 
 const calculateDiscount = async (couponCode, subtotal) => {
   if (!couponCode) {
@@ -87,7 +89,17 @@ const createOrder = async (req, res) => {
   let touchedProducts = [];
 
   try {
-    const { customerName, customer, products, paymentMethod = "cash", deliveryAddress, couponCode, useCart = false } = req.body;
+    const {
+      customerName,
+      customer,
+      products,
+      paymentMethod = "cash",
+      deliveryAddress,
+      couponCode,
+      rewardId,
+      fulfillment = deliveryAddress ? "delivery" : "pickup",
+      useCart = false
+    } = req.body;
     let items = products;
 
     if (useCart || !items || items.length === 0) {
@@ -102,8 +114,23 @@ const createOrder = async (req, res) => {
     const result = await buildOrderProducts(items);
     touchedProducts = result.touchedProducts;
 
-    const { discount, coupon } = await calculateDiscount(couponCode, result.subtotal);
-    const totalPrice = Math.max(0, Number((result.subtotal - discount).toFixed(2)));
+    const { discount: couponDiscount, coupon } = await calculateDiscount(couponCode, result.subtotal);
+    const deliveryFee = fulfillment === "delivery" ? Number(process.env.DELIVERY_FEE || 2) : 0;
+    let reward;
+    let rewardDiscount = 0;
+
+    if (rewardId) {
+      reward = await Reward.findOne({ _id: rewardId, isActive: true });
+      if (!reward) throw new Error("Reward not found");
+      if (req.user.loyaltyPoints < reward.points) throw new Error("Not enough loyalty points");
+
+      if (reward.type === "fixed") rewardDiscount = Math.min(result.subtotal, reward.value);
+      if (reward.type === "percent") rewardDiscount = result.subtotal * (reward.value > 1 ? reward.value / 100 : reward.value);
+      if (reward.type === "delivery" && fulfillment === "delivery") rewardDiscount = Math.min(deliveryFee, reward.value);
+    }
+
+    const discount = Number((couponDiscount + rewardDiscount).toFixed(2));
+    const totalPrice = Math.max(0, Number((result.subtotal + deliveryFee - discount).toFixed(2)));
     const paymentStatus = paymentMethod === "cash" ? "pending" : "paid";
     const status = paymentMethod === "cash" ? "pending" : "completed";
 
@@ -114,13 +141,21 @@ const createOrder = async (req, res) => {
       products: result.orderProducts,
       subtotal: result.subtotal,
       discount,
+      deliveryFee,
       totalPrice,
       paymentMethod,
       paymentStatus,
       status,
       deliveryAddress,
-      deliveryStatus: deliveryAddress ? "preparing" : "not_required",
-      couponCode: couponCode ? couponCode.toUpperCase() : undefined
+      fulfillment,
+      deliveryStatus: fulfillment === "delivery" ? "preparing" : "not_required",
+      couponCode: couponCode ? couponCode.toUpperCase() : undefined,
+      reward: reward ? {
+        rewardId: reward._id,
+        title: reward.title,
+        pointsSpent: reward.points,
+        discount: Number(rewardDiscount.toFixed(2))
+      } : undefined
     });
 
     if (paymentMethod === "fake_card") {
@@ -143,6 +178,30 @@ const createOrder = async (req, res) => {
       await Customer.findByIdAndUpdate(customer, { $inc: { loyaltyPoints: Math.floor(totalPrice), purchaseCount: 1, totalSpent: totalPrice } });
     }
 
+    const earnedPoints = Math.floor(totalPrice);
+    const pointsChange = earnedPoints - (reward?.points || 0);
+    req.user.loyaltyPoints = Math.max(0, req.user.loyaltyPoints + pointsChange);
+    req.user.membershipLevel = req.user.loyaltyPoints >= 1000 ? "Gold" : req.user.loyaltyPoints >= 500 ? "Silver" : "Bronze";
+    await req.user.save();
+
+    if (reward) {
+      await LoyaltyTransaction.create({
+        user: req.user._id,
+        points: -reward.points,
+        action: `Redeemed ${reward.title}`,
+        reward: reward._id,
+        order: order._id
+      });
+    }
+    if (earnedPoints > 0) {
+      await LoyaltyTransaction.create({
+        user: req.user._id,
+        points: earnedPoints,
+        action: "Earned points from purchase",
+        order: order._id
+      });
+    }
+
     if (useCart) {
       await Cart.findOneAndUpdate({ user: req.user._id }, { items: [] });
     }
@@ -154,13 +213,44 @@ const createOrder = async (req, res) => {
       order: order._id
     });
 
-    res.status(201).json({ message: "Order created successfully", order });
+    res.status(201).json({
+      message: "Order created successfully",
+      order,
+      loyalty: { points: req.user.loyaltyPoints, membershipLevel: req.user.membershipLevel, earnedPoints }
+    });
   } catch (error) {
     if (touchedProducts.length) {
       await rollbackStock(touchedProducts);
     }
 
     res.status(400).json({ message: error.message });
+  }
+};
+
+const getOrderTracking = async (req, res) => {
+  try {
+    const filter = { _id: req.params.id };
+    if (!["admin", "manager", "employee"].includes(req.user.role)) filter.user = req.user._id;
+    const order = await Order.findOne(filter).select("customerName fulfillment deliveryAddress deliveryStatus delivery createdAt updatedAt status");
+    if (!order) return res.status(404).json({ message: "Order not found" });
+    if (order.fulfillment !== "delivery") return res.status(400).json({ message: "This order is not a delivery order" });
+
+    const statusOrder = ["preparing", "out_for_delivery", "delivered"];
+    const activeIndex = statusOrder.indexOf(order.deliveryStatus);
+    res.json({
+      orderId: order._id,
+      status: order.status,
+      deliveryStatus: order.deliveryStatus,
+      deliveryAddress: order.deliveryAddress,
+      delivery: order.delivery,
+      steps: statusOrder.map((status, index) => ({
+        status,
+        completed: index <= activeIndex,
+        active: index === activeIndex
+      }))
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -196,12 +286,13 @@ const getOrderById = async (req, res) => {
 
 const updateOrderStatus = async (req, res) => {
   try {
-    const { status, deliveryStatus, paymentStatus } = req.body;
+    const { status, deliveryStatus, paymentStatus, delivery } = req.body;
     const update = {};
 
     if (status) update.status = status;
     if (deliveryStatus) update.deliveryStatus = deliveryStatus;
     if (paymentStatus) update.paymentStatus = paymentStatus;
+    if (delivery) update.delivery = { ...delivery, updatedAt: new Date() };
 
     const order = await Order.findByIdAndUpdate(req.params.id, update, { returnDocument: "after", runValidators: true });
 
@@ -252,5 +343,6 @@ module.exports = {
   getOrders,
   getOrderById,
   updateOrderStatus,
-  cancelOrder
+  cancelOrder,
+  getOrderTracking
 };
