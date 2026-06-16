@@ -45,10 +45,8 @@ const preferenceRoutes = require("./routes/preferenceRoutes");
 const rewardRoutes = require("./routes/rewardRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const financeRoutes = require("./routes/financeRoutes");
-const productCsvRoutes = require("./routes/productCsvRoutes");
 
 app.use("/api/auth", authRoutes);
-
 app.use("/api/health", healthRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
@@ -68,7 +66,6 @@ app.use("/api/preferences", preferenceRoutes);
 app.use("/api/rewards", rewardRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/finance", financeRoutes);
-app.use("/api/products-csv", productCsvRoutes);
 
 //Supermarket API Endpoints:
 //POST /api/auth/register - Register a new user

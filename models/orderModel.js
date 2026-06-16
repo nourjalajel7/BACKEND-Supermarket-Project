@@ -19,7 +19,7 @@ const orderSchema = new mongoose.Schema(
     discount: { type: Number, default: 0, min: 0 },
     deliveryFee: { type: Number, default: 0, min: 0 },
     totalPrice: { type: Number, required: true, min: 0 },
-    paymentMethod: { type: String, enum: ["cash", "fake_card"], default: "cash" },
+    paymentMethod: { type: String, enum: ["cash", "card"], default: "cash" },
     paymentStatus: { type: String, enum: ["pending", "paid", "failed", "refunded"], default: "pending" },
     deliveryAddress: { type: String, trim: true },
     fulfillment: { type: String, enum: ["pickup", "delivery"], default: "pickup" },

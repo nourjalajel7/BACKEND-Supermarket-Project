@@ -3,13 +3,13 @@ const Payment = require("../models/paymentModel");
 
 const createPayment = async (req, res) => {
   try {
-    const { orderId, method = "fake_card" } = req.body;
+    const { orderId, method = "card" } = req.body;
 
     if (!orderId) {
       return res.status(400).json({ message: "Order ID is required" });
     }
 
-    if (!["cash", "fake_card"].includes(method)) {
+    if (!["cash", "card"].includes(method)) {
       return res.status(400).json({ message: "Invalid payment method" });
     }
 
@@ -39,7 +39,7 @@ const createPayment = async (req, res) => {
       amount: order.totalPrice,
       method,
       status: method === "cash" ? "pending" : "paid",
-      transactionId: method === "cash" ? undefined : `SIM-${Date.now()}-${Math.floor(Math.random() * 10000)}`
+      transactionId: method === "cash" ? undefined : `CARD-${Date.now()}-${Math.floor(Math.random() * 10000)}`
     });
 
     order.paymentMethod = method;

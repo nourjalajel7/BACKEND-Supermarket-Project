@@ -1,6 +1,6 @@
 const assert = require("node:assert/strict");
 const { validate, rule, validators, validateProductsArray } = require("../middleware/validateMiddleware");
-const { parseCsv, productsToCsv } = require("../services/productCsvService");
+const { createUserValidator, updateUserValidator } = require("../validators/requestValidators");
 
 const runMiddleware = (middleware, body) => {
   return new Promise((resolve) => {
@@ -84,38 +84,61 @@ const testLoginRateLimit = async () => {
   assert.equal(blocked.payload.message, "Too many login attempts, please try again later");
 };
 
-const testProductCsvRoundTrip = () => {
-  const csv = [
-    "product_id,category,product_name,image_url,barcode,price_jd,stock_quantity,minimum_stock,health_tags,supplier_id",
-    '1,Frozen Foods,"Pizza, Chicken",/pizza.jpg,614256845007,2.49,30,25,"gluten,high_sodium",Frozen Food Hub'
-  ].join("\n");
-  const rows = parseCsv(csv);
+const testCreateUserValidation = async () => {
+  const valid = await runMiddleware(createUserValidator, {
+    name: "Store User",
+    email: "store.user@example.com",
+    password: "Secret123",
+    role: "employee"
+  });
 
-  assert.equal(rows.length, 1);
-  assert.equal(rows[0].product_name, "Pizza, Chicken");
-  assert.equal(rows[0].health_tags, "gluten,high_sodium");
+  assert.equal(valid.nextCalled, true);
 
-  const exported = productsToCsv([{
-    _id: "507f1f77bcf86cd799439011",
-    categoryName: "Frozen Foods",
-    name: "Pizza, Chicken",
-    imageUrl: "/pizza.jpg",
-    barcode: "614256845007",
-    price: 2.49,
-    quantity: 30,
-    minimumStock: 25,
-    healthTags: ["gluten", "high_sodium"]
-  }]);
+  const invalid = await runMiddleware(createUserValidator, {
+    name: "Store User",
+    email: "not-an-email",
+    password: "123",
+    role: "owner"
+  });
 
-  assert.equal(parseCsv(exported)[0].product_name, "Pizza, Chicken");
+  assert.equal(invalid.statusCode, 400);
+  assert.deepEqual(invalid.payload.errors, [
+    "Valid email is required",
+    "Password must be at least 6 characters",
+    "Role must be admin, manager, employee or user"
+  ]);
+};
+
+const testUpdateUserValidation = async () => {
+  const valid = await runMiddleware(updateUserValidator, {
+    email: "updated.user@example.com",
+    password: "Secret123",
+    role: "user"
+  });
+
+  assert.equal(valid.nextCalled, true);
+
+  const invalid = await runMiddleware(updateUserValidator, {
+    email: "updated-user",
+    password: "123",
+    role: "owner"
+  });
+
+  assert.equal(invalid.statusCode, 400);
+  assert.deepEqual(invalid.payload.errors, [
+    "Email must be valid",
+    "Password must be at least 6 characters",
+    "Role must be admin, manager, employee or user"
+  ]);
 };
 
 const main = async () => {
   await testValidationAllowsValidProduct();
   await testValidationRejectsInvalidProduct();
   testOrderProductsValidation();
-  testProductCsvRoundTrip();
   await testLoginRateLimit();
+  await testCreateUserValidation();
+  await testUpdateUserValidation();
   console.log("All tests passed");
 };
 

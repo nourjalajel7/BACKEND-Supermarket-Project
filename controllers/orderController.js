@@ -158,14 +158,14 @@ const createOrder = async (req, res) => {
       } : undefined
     });
 
-    if (paymentMethod === "fake_card") {
+    if (paymentMethod === "card") {
       await Payment.create({
         order: order._id,
         user: req.user._id,
         amount: totalPrice,
         method: paymentMethod,
         status: "paid",
-        transactionId: `SIM-${Date.now()}-${Math.floor(Math.random() * 10000)}`
+        transactionId: `CARD-${Date.now()}-${Math.floor(Math.random() * 10000)}`
       });
     }
 

@@ -1,4 +1,4 @@
-# Smart Supermarket Management Backend
+﻿# Smart Supermarket Management Backend
 
 Backend API for an AI-powered smart supermarket management dashboard. It manages users, roles, products, categories, barcode lookup, cart, orders, payments, stock updates, customers, loyalty points, coupons, reviews, notifications, dashboard analytics, and inventory predictions.
 
@@ -197,9 +197,9 @@ Authorization: Bearer <token>
 Payment methods:
 
 - `cash`
-- `fake_card`
+- `card`
 
-Cash orders start with `paymentStatus: "pending"`. Paying later with `fake_card` marks the order as `paid` and `completed`.
+Cash orders start with `paymentStatus: "pending"`. Paying later with `card` marks the order as `paid` and `completed`.
 
 ### Management
 
@@ -227,8 +227,6 @@ Cash orders start with `paymentStatus: "pending"`. Paying later with `fake_card`
 | `GET` | `/api/rewards/account` | Points, membership level, and activity |
 | `GET` | `/api/orders/:id/tracking` | Delivery driver and progress data |
 | `GET` | `/api/products/:id/sales-history` | Product chart history |
-| `GET` | `/api/products-csv` | Download inventory as CSV |
-| `POST` | `/api/products-csv` | Import or synchronize the frontend CSV |
 | `GET` | `/api/suppliers/restock/:productId` | Preferred supplier and suggested quantity |
 
 Frontend product field mapping:
@@ -313,7 +311,7 @@ Recommended test order:
 6. Lookup product by barcode
 7. Add product to cart
 8. Create cash order from cart
-9. Pay order with fake card
+9. Pay order with card
 10. Check dashboard and predictions
 
 Run automated tests:

@@ -42,6 +42,19 @@ const verifyEmailValidator = validate([
   rule("OTP is required", validators.required("otp"))
 ]);
 
+const createUserValidator = validate([
+  rule("Name is required", validators.required("name")),
+  rule("Valid email is required", (body) => validators.required("email")(body) && validators.email("email")(body)),
+  rule("Password must be at least 6 characters", (body) => validators.required("password")(body) && validators.minLength("password", 6)(body)),
+  rule("Role must be admin, manager, employee or user", validators.oneOf("role", ["admin", "manager", "employee", "user"]))
+]);
+
+const updateUserValidator = validate([
+  rule("Email must be valid", validators.email("email")),
+  rule("Password must be at least 6 characters", (body) => body.password === undefined || validators.minLength("password", 6)(body)),
+  rule("Role must be admin, manager, employee or user", validators.oneOf("role", ["admin", "manager", "employee", "user"]))
+]);
+
 const createCategoryValidator = validate([
   rule("Category name is required", validators.required("name"))
 ]);
@@ -73,7 +86,7 @@ const cartQuantityValidator = validate([
 
 const createOrderValidator = validate([
   rule("Products are required unless useCart is true", (body) => body.useCart === true || validateProductsArray(body)),
-  rule("Payment method must be cash or fake_card", validators.oneOf("paymentMethod", ["cash", "fake_card"]))
+  rule("Payment method must be cash or card", validators.oneOf("paymentMethod", ["cash", "card"]))
 ]);
 
 const updateOrderStatusValidator = validate([
@@ -84,7 +97,7 @@ const updateOrderStatusValidator = validate([
 
 const paymentValidator = validate([
   rule("Order ID is required", (body) => validators.required("orderId")(body) && validators.objectId("orderId")(body)),
-  rule("Payment method must be cash or fake_card", validators.oneOf("method", ["cash", "fake_card"]))
+  rule("Payment method must be cash or card", validators.oneOf("method", ["cash", "card"]))
 ]);
 
 const customerValidator = validate([
@@ -154,6 +167,8 @@ module.exports = {
   resetPasswordValidator,
   requestEmailVerificationValidator,
   verifyEmailValidator,
+  createUserValidator,
+  updateUserValidator,
   createCategoryValidator,
   createProductValidator,
   updateProductValidator,

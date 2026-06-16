@@ -1,4 +1,4 @@
-{
+﻿{
   "info": {
     "name": "Smart Supermarket Backend",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -62,7 +62,7 @@
             "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Normal User\",\n  \"email\": \"{{userEmail}}\",\n  \"password\": \"{{userPassword}}\",\n  \"phone\": \"0790000002\",\n  \"address\": \"Irbid\"\n}"
+              "raw": "{\n  \"name\": \"Authenticated User\",\n  \"email\": \"{{userEmail}}\",\n  \"password\": \"{{userPassword}}\",\n  \"phone\": \"0790000002\",\n  \"address\": \"Irbid\"\n}"
             },
             "url": "{{baseUrl}}/auth/register"
           }
@@ -180,7 +180,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"useCart\": true,\n  \"customerName\": \"Normal User\",\n  \"paymentMethod\": \"cash\",\n  \"deliveryAddress\": \"Irbid\"\n}"
+              "raw": "{\n  \"useCart\": true,\n  \"customerName\": \"Authenticated User\",\n  \"paymentMethod\": \"cash\",\n  \"deliveryAddress\": \"Irbid\"\n}"
             },
             "url": "{{baseUrl}}/orders"
           }
@@ -195,7 +195,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"orderId\": \"{{orderId}}\",\n  \"method\": \"fake_card\"\n}"
+              "raw": "{\n  \"orderId\": \"{{orderId}}\",\n  \"method\": \"card\"\n}"
             },
             "url": "{{baseUrl}}/payments"
           }
