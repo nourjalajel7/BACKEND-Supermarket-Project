@@ -1,0 +1,13 @@
+antecedent,consequents,target_confidence,reason
+Frozen fries,Sauce | Soft Drinks,0.78,User trend: fries usually bought with sauces and soft drinks
+Frozen pizza,Sauce | Juices,0.65,Pizza meal combo
+Burger,Burger Buns | Sauce | Cheese | Soft Drinks,0.82,Burger basket combo
+Poultry,Sauce | Burger Buns,0.45,Chicken/burger grilling combo
+Fruit And Veg,Rice | Spices & Seasonings,0.48,Home cooking basket
+Pasta,Canned Vegetables,0.58,Pasta with canned vegetables
+Canned Seafood,Spices & Seasonings,0.55,Seafood with spices
+Sandwich Rolls,Canned Meat,0.5,Sandwich basket
+Chips,Chocolate | Soft Drinks,0.72,Snack combo
+Chocolate,Chips | Soft Drinks,0.62,Sweet snack basket
+Rice,Oil | Spices & Seasonings,0.58,Staples cooking combo
+Dates/Ramadan,Dairy | Water,0.6,Ramadan iftar basket

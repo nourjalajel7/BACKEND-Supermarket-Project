@@ -1,4 +1,5 @@
 const Customer = require("../models/customerModel");
+const CustomerLoyalty = require("../models/CustomerLoyalty");
 
 const createCustomer = async (req, res) => {
   try {
@@ -23,7 +24,21 @@ const getCustomers = async (req, res) => {
     }
 
     const customers = await Customer.find(filter).sort({ createdAt: -1 });
-    res.json(customers);
+    if (customers.length || search) return res.json(customers);
+
+    const importedCustomers = await CustomerLoyalty.find().sort({ customerName: 1 }).lean();
+    res.json(importedCustomers.map((customer) => ({
+      _id: customer._id,
+      name: customer.customerName,
+      membershipLevel: customer.loyaltyTier,
+      loyaltyPoints: customer.pointsBalance,
+      pointsEarnedTotal: customer.pointsEarnedTotal,
+      pointsRedeemedTotal: customer.pointsRedeemedTotal,
+      totalSpent: customer.totalSpentJd,
+      purchaseCount: customer.visits2026Until0617,
+      joinDate: customer.joinDate,
+      sourceCustomerId: customer.customerId
+    })));
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

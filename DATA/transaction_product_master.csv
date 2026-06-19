@@ -1,0 +1,399 @@
+product_id,category,product_name,price_jd,health_tags,supplier_id,source_sheet
+1,frozen food,Frozen pizza,2.49,"gluten,high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+2,frozen food,Frozen pizza,3.59,"gluten,high_sodium,dairy,not_vegan",Frozen Food Hub,Frozen foods
+3,frozen food,Frozen pizza,3.59,"gluten,high_sodium,dairy,not_vegan",Frozen Food Hub,Frozen foods
+4,frozen food,Frozen fries,1.9,vegan,Frozen Food Hub,Frozen foods
+5,frozen food,Frozen fries,2.5,vegan,Frozen Food Hub,Frozen foods
+6,frozen food,Frozen fries,3,vegan,Frozen Food Hub,Frozen foods
+7,frozen food,Frozen fries,1.85,vegan,Frozen Food Hub,Frozen foods
+8,frozen food,Poultry,4.05,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+9,frozen food,Poultry,7.39,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+10,frozen food,Poultry,4.55,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+11,frozen food,Poultry,4,"meat,not_vegan",Frozen Food Hub,Frozen foods
+12,frozen food,Poultry,3.9,"meat,not_vegan",Frozen Food Hub,Frozen foods
+13,frozen food,Poultry,4.29,vegan,Frozen Food Hub,Frozen foods
+14,frozen food,Poultry,3.39,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+15,frozen food,seafood,4.09,"fish,not_vegan",Frozen Food Hub,Frozen foods
+16,frozen food,seafood,21.09,"fish,not_vegan",Frozen Food Hub,Frozen foods
+17,frozen food,meat,4.49,"meat,not_vegan",Frozen Food Hub,Frozen foods
+18,frozen food,meat,1.45,"meat,not_vegan",Frozen Food Hub,Frozen foods
+19,frozen food,Fruit And Veg,0.85,vegan,Frozen Food Hub,Frozen foods
+20,frozen food,Fruit And Veg,0.59,vegan,Frozen Food Hub,Frozen foods
+21,frozen food,Fruit And Veg,2.9,vegan,Frozen Food Hub,Frozen foods
+22,frozen food,Fruit And Veg,0.92,vegan,Frozen Food Hub,Frozen foods
+23,frozen food,Poultry,3.7,"meat,not_vegan",Frozen Food Hub,Frozen foods
+24,frozen food,Poultry,4,"meat,not_vegan",Frozen Food Hub,Frozen foods
+25,frozen food,Poultry,3.99,"meat,not_vegan",Frozen Food Hub,Frozen foods
+26,frozen food,Burger,3.1,"gluten,high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+27,frozen food,Burger,3.8,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+28,frozen food,Poultry,3.4,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+29,frozen food,Poultry,5.5,"meat,not_vegan",Frozen Food Hub,Frozen foods
+30,frozen food,Poultry,3.35,"gluten,high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+31,frozen food,Poultry,4.65,"gluten,meat,not_vegan",Frozen Food Hub,Frozen foods
+32,frozen food,Poultry,5.35,"meat,not_vegan",Frozen Food Hub,Frozen foods
+33,frozen food,Burger,5.15,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+34,frozen food,Burger,4.09,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+35,frozen food,Desserts,1.95,"high_sugar,vegan",Frozen Food Hub,Frozen foods
+36,frozen food,Desserts,1.5,"high_sugar,vegan",Frozen Food Hub,Frozen foods
+37,frozen food,Desserts,2,"high_sugar,vegan",Frozen Food Hub,Frozen foods
+38,frozen food,Desserts,0.55,"dairy,not_vegan",Frozen Food Hub,Frozen foods
+39,frozen food,Desserts,0.65,"dairy,not_vegan",Frozen Food Hub,Frozen foods
+40,frozen food,Desserts,0.65,"dairy,not_vegan",Frozen Food Hub,Frozen foods
+41,frozen food,Desserts,0.5,"sugar_free,dairy,not_vegan",Frozen Food Hub,Frozen foods
+42,frozen food,Desserts,4.95,"tree_nuts,dairy,not_vegan",Frozen Food Hub,Frozen foods
+43,frozen food,burger,4.25,"high_sodium,meat,not_vegan",Frozen Food Hub,Frozen foods
+44,labneh,"Almarai Labneh, 500g",2.21,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+45,labneh,"Al Youm Labneh, 200g",1.25,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+46,labneh,"Teeba 9% Fat Labneh, 500g",2.25,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+47,labneh,"Teeba Labneh, 180g",1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+48,milk,"Almarai Uht Full Fat Milk with Vitamins, 4x1L",3.77,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+49,milk,Al Youm 3% Milk Full Fat 1 L,1.5,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+50,milk,Baladna Full Cream Milk 1 L,1.03,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+51,milk,"Hammoudeh Lactose Free Full Fat UHT Milk, 1L",1.5,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+52,youghurt,"Almarai Full Fat Fresh Yoghurt, 700g",1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+53,youghurt,"Alyoum Yoghurt, 1kg",1.27,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+54,youghurt,"Teeba Yoghurt, 700g",1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+55,youghurt,"Hammoudeh Fresh Yoghurt, 700g",1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+56,cheese,"Almarai Cream Cheese, 6 Portion, 108g",1.02,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+57,eggs,"Ovalyo Eggs White XLarge, 30 Pieces",3.25,"egg,not_vegan",Jordan Dairy Co.,dairy & eggs
+58,eggs,Ovalyo Eggs Brown XL 30 pcs,3.22,"egg,not_vegan",Jordan Dairy Co.,dairy & eggs
+59,eggs,"Ovalyo White XL Eggs, 6pcs",0.95,"egg,not_vegan",Jordan Dairy Co.,dairy & eggs
+60,eggs,"Free Field Farms White Eggs, 15 Pieces",4.25,"egg,not_vegan",Jordan Dairy Co.,dairy & eggs
+61,butter,"Almarai Natural Unsalted Butter, 100g",0.99,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+62,butter,"Lurpak Unsalted Butter, 100g",1.13,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+63,butter,"Lurpak Unsalted Butter, 6x50g",4.23,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+64,butter,"Almarai Unsalted Natural Butter, 200g",2.05,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+65,cream,"KDD Thick Cream, 4x125ml",1.72,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+66,cream,"Almarai Cooking Cream, 500ml",2.65,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+67,cream,"Five Cows Thick Cream, 4x125ml",1.75,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+68,Long Life Milk,"Al Safi UHT Full Fat Milk, 4x1L",3.85,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+69,Long Life Milk,"Nadec Long Life Full Fat UHT Milk, 4x1L",3.35,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+70,Long Life Milk,"Koita Lactose Free Skim Milk, 1L",3.1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+71,Long Life Milk,"Koita Low Fat Lactose Free Non Harmone Milk, 1L",2.9,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+72,Long Life Milk,"Koita UHT Lactose Free Whole Fat Milk, 1L",3.09,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+73,Long Life Milk,"Koita Organic Whole Cream Milk, 1L",3.1,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+74,Long Life Milk,Koita Organic Chocolate Milk Uht 200 ml,1.65,"high_sugar,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+75,Long Life Milk,"KDD Strawberry Flavored Milk, 6x250ml",2.25,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+76,Long Life Milk,"Nadec Banana Flavor Milk, 6x125ml",1.35,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+77,Long Life Milk,"Nadec Milk Chocolate Milk, 6x125ml",1.35,"high_sugar,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+78,Long Life Milk,"Nadec Full Fat Fresh Milk, 6x125ml",1.13,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+79,Milk Alternatives,"The Bridge Bio Organic Pure Coconut Drink, 1L",4.2,"tree_nuts,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+80,Milk Alternatives,"The Bridge Bio Organic Almond Sugar Free Drink, 1L",4.2,"sugar_free,tree_nuts,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+81,Milk Alternatives,"Koita Organic Almond Milk, 1L",3.7,"tree_nuts,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+82,Milk Alternatives,"Koita UHT Coconut Milk - No Added Sugar, 1L",3.7,"sugar_free,tree_nuts,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+83,Milk Alternatives,"Alinor Organic Plant Based Almond Barista Drink, 1L",3.5,"tree_nuts,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+84,Milk Alternatives,"Orasi Soy Milk Sugar Free, 1L",2.5,"sugar_free,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+85,Milk Alternatives,"Alpro Plant-Based Barista Soya Drink, 1L",2.8,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+86,Milk Alternatives,"Pascual Vive Soy High Calcium Soy Drink, 1L",3.5,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+87,Milk Alternatives,"Pascual Vive Soy High Calcium Oat Drink, 1L",3.5,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+88,Yoghurts,"Almarai Greek Style Mango Yoghurt, 150g",0.9,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+89,Yoghurts,"Almarai Greek Style Full Fat Strawberry Yoghurt, 150g",0.9,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+90,Yoghurts,"Almarai Greek Style Full Fat Blueberry Yoghurt, 150g",0.9,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+91,Yoghurts,"AlSafi Mixed Berries Greek Yoghurt, 150g",0.8,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+92,Yoghurts,"AL Safi Greek Yogurt Lemon Pie, 150g",0.8,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+93,Yoghurts,"Alyoum Fresh Jameed Liquid, 1kg",1.75,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+94,Yoghurts,"Alyoum Tang Taste Yoghurt Baladi, 1kg",1.75,"dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+95,Yoghurts,"Al Mazraa Jameed Pasteurized Liquid, 1L",2.75,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+96,Cheese,"Almarai Cheddar Cheese Slices, 200g",1.4,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+97,Cheese,"Almarai Full Fat Processed Cheddar Burger Cheese (10 Slices), 200g",1.4,"high_sodium,dairy,not_vegan,meat,egg",Jordan Dairy Co.,dairy & eggs
+98,Cheese,"Nadec Burger Cheese (10 Slices), 200g",1.57,"high_sodium,dairy,not_vegan,meat,egg",Jordan Dairy Co.,dairy & eggs
+99,Cheese,"Kraft Original Cheddar Cheese Slices, 200g",1.75,"high_sodium,dairy,not_vegan,egg",Jordan Dairy Co.,dairy & eggs
+100,rice,Tiger Rice 3.5 kg,3.65,vegan,Pantry Partners Jordan,kitchen staples
+101,rice,Mandi Basmati Rice 4 kg,4.97,non_food,Pantry Partners Jordan,kitchen staples
+102,rice,"Sunwhite Calrose Rice, 4kg",4.99,vegan,Pantry Partners Jordan,kitchen staples
+103,rice,"Abu Kass Basmati Rice, 4kg",5.49,non_food,Pantry Partners Jordan,kitchen staples
+104,pasta,"Pasta Zara Conchiglie No.54, 500g",1.31,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+105,pasta,"Al-Ghazal Pasta Bucatini 1, 300g",0.49,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+106,pasta,Barilla Rigatoni 500 g,1.68,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+107,pasta,"Barakah Al Sanabel Chiffari Lisci, 450g",0.35,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+108,oil,"Afia Pure Corn Oil, 1.5L",3.99,vegan,Pantry Partners Jordan,kitchen staples
+109,oil,"Mazola Sunflower Oil, 1.5L",3.39,vegan,Pantry Partners Jordan,kitchen staples
+110,oil,"Golden Corn Oil, 2.9L",5.69,vegan,Pantry Partners Jordan,kitchen staples
+111,oil,"Filippo Berio Basil Flavoured Olive Oil, 250ml",12.6,vegan,Pantry Partners Jordan,kitchen staples
+112,oil,"Kasih Vegetable Oil Cooking Spray, 141g",2.25,vegan,Pantry Partners Jordan,kitchen staples
+113,suger,"Al Osra Fine White Sugar, 2kg",1.59,vegan,Pantry Partners Jordan,kitchen staples
+114,suger,"Al Osra Brown Sugar, 2kg",3.65,vegan,Pantry Partners Jordan,kitchen staples
+115,Cooking & Baking,"Al Ghazal All Purpose Flour, 1.25kg",1.1,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+116,Cooking & Baking,"Al-Ghazal Semolina Packet (Fine), 1.25kg",1.35,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+117,Cooking & Baking,"Kasih Corn Starch Pouches, 350g",1.19,vegan,Pantry Partners Jordan,kitchen staples
+118,Cooking & Baking,Sasi Flour All Purpose 1.250 kg,1.02,"gluten,vegan",Pantry Partners Jordan,kitchen staples
+119,Cooking & Baking,"Elbasha Small Lentils Bag, 800g",1.55,vegan,Pantry Partners Jordan,kitchen staples
+120,Cooking & Baking,"Albayrouty Freekeh Jeneen, 700g",3.29,vegan,Pantry Partners Jordan,kitchen staples
+121,Cooking & Baking,Khalifa Red Lentil Football 800 g,1.25,vegan,Pantry Partners Jordan,kitchen staples
+122,Cooking & Baking,Tropicana Slim Low Calorie Sweetener 100 pcs,7.56,"high_sugar,vegan",Pantry Partners Jordan,kitchen staples
+123,Cooking & Baking,"Foster Clark's Bicarbonate of Soda, 150g",0.9,vegan,Levant Beverage Distributors,kitchen staples
+124,Cooking & Baking,"Kasih Sea Salt Pouch, 400g",0.69,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+125,Cooking & Baking,"Kasih Pink Himalayan Salt Pouche, 400g",0.99,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+126,Cooking & Baking,Sasi Salt Iodized Nylon 750 g,0.33,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+127,Cooking & Baking,"Knorr Chicken Powder Stock, 30x16g",2.59,"high_sodium,meat,not_vegan",Pantry Partners Jordan,kitchen staples
+128,Cooking & Baking,Blue Mill Crushed Red Chili 175 g,2.41,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+129,Cooking & Baking,Blue Mill Paprika 200 g,3.85,vegan,Pantry Partners Jordan,kitchen staples
+130,Cooking & Baking,Blue Mill Onion 200 g,3.35,vegan,Pantry Partners Jordan,kitchen staples
+131,Cooking & Baking,Blue Mill Garlic Powder 200 g,2.89,vegan,Pantry Partners Jordan,kitchen staples
+132,Cooking & Baking,Blue Mill Origano 100 g,2.85,vegan,Pantry Partners Jordan,kitchen staples
+133,Cooking & Baking,Spice Classics Basil Leaves 6.25 g,1.99,vegan,Pantry Partners Jordan,kitchen staples
+134,Cooking & Baking,"Al Rayhan Oregano Thyme, 30 g",1.25,vegan,Pantry Partners Jordan,kitchen staples
+135,Cooking & Baking,"Aroma Garden Dry Onion, 100g",1.85,vegan,Pantry Partners Jordan,kitchen staples
+136,Cooking & Baking,"Ard Jdadna Powder Garlic, 200g",2.2,vegan,Pantry Partners Jordan,kitchen staples
+137,Cooking & Baking,"Ard Jdadna Powder Garlic, 200g",1.9,vegan,Pantry Partners Jordan,kitchen staples
+138,Cooking & Baking,"Aroma Garden Turmeric Powder, 100g",1.75,vegan,Pantry Partners Jordan,kitchen staples
+139,Cooking & Baking,"Aroma Garden Cinnamon, 100g",2.29,vegan,Pantry Partners Jordan,kitchen staples
+140,Cooking & Baking,"Aroma Garden Organic Ground Ginger, 120g",2.08,vegan,Pantry Partners Jordan,kitchen staples
+141,Cooking & Baking,"Aroma Garden Chicken Spices, 100g",2.09,"meat,not_vegan",Pantry Partners Jordan,kitchen staples
+142,Cooking & Baking,"Aroma Garden Organic Meat Spices, 120g",2.09,"meat,not_vegan",Pantry Partners Jordan,kitchen staples
+143,Cooking & Baking,"Aroma Garden Seven Spices, 100g",2.09,vegan,Pantry Partners Jordan,kitchen staples
+144,Cooking & Baking,"Aroma Garden Magloubeh Spices, 100g",2.09,vegan,Pantry Partners Jordan,kitchen staples
+145,Cooking & Baking,"Aroma Garden Biryani Spices, 100g",2.09,vegan,Pantry Partners Jordan,kitchen staples
+146,Cooking & Baking,NewLand Apple Cider Vinegar 472ml,1.24,vegan,Pantry Partners Jordan,kitchen staples
+147,Cooking & Baking,"Anjar Pomegranate Molasses, 300ml",1.95,"high_sugar,vegan",Pantry Partners Jordan,kitchen staples
+148,Cooking & Baking,"Durra Lemon Seasoning, 1000ml",1.85,vegan,Pantry Partners Jordan,kitchen staples
+149,Cooking & Baking,Blue Mill Organic White Grape Vinegar 250 ml,2.1,vegan,Pantry Partners Jordan,kitchen staples
+150,Cooking & Baking,"Durra Pomegranate Molasses, 1L",2.75,"high_sugar,vegan",Pantry Partners Jordan,kitchen staples
+151,Cooking & Baking,"Al Rayhan Sumac Molasses, 350ml",4.99,"high_sugar,vegan",Pantry Partners Jordan,kitchen staples
+152,Cooking & Baking,"Benina Garlic Chili Sauce, 280g",1.49,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+153,Cooking & Baking,"Benina Soy Sauce Mild, 150g",1.05,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+154,Cooking & Baking,"Benina Chili Oil, 150ml",1.49,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+155,Cooking & Baking,"Kikkoman Soy Sauce, 591ml",3.55,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+156,Cooking & Baking,Thai Heritage Noodles Chinese Yellow 400 g,1,"gluten,high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+157,Cooking & Baking,"Kabatilo Bay Leaves, 50g",0.55,vegan,Pantry Partners Jordan,kitchen staples
+158,Cooking & Baking,"Ard Jdadna Dry Lime Black, 145g",1.9,vegan,Pantry Partners Jordan,kitchen staples
+159,Cooking & Baking,NewLand Hickory Smoked Barbecue Sauce 510 g,2.75,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+160,Cooking & Baking,NewLand Tomato Ketchup 567 g,2.09,"high_sodium,non_food",Pantry Partners Jordan,kitchen staples
+161,Cooking & Baking,"NewLand Mayonnaise, 300ml",2,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+162,Cooking & Baking,"NewLand Special Sauce For Burgers & Fries, 300g",2,"high_sodium,meat,not_vegan",Pantry Partners Jordan,kitchen staples
+163,Cooking & Baking,"NewLand Dynamite Sauce, 300ml",2.13,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+164,Cooking & Baking,"NewLand Classic Yellow Mustard, 397g",1.79,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+165,Cooking & Baking,NewLand Mayonnaise Garlic Flavor 300ml,1.61,"high_sodium,vegan",Pantry Partners Jordan,kitchen staples
+166,Canned Seafood,Maxim's Sliced Tuna With Garlic And Black Pepper 120 g,2.29,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+167,Canned Seafood,Maxim's Smoked Tuna Oil 185 g,3,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+168,Canned Seafood,"Al Sayad Tuna In Vegetable Oil, 160g",0.79,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+169,Canned Seafood,Sayad Tuna Meat With Natural Chili 160 g,0.85,"high_sodium,fish,not_vegan,meat",Aqaba Seafood Supply,canned
+170,Canned Seafood,"Durra Tuna Solid with Chilli Pepper, 160g",1.04,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+171,Canned Seafood,"Rio Mare Tuna In Olive Oil, 2x160g",5.5,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+172,Canned Seafood,"Rio Mare Light Tuna in Olive Oil, 160g",3.45,"high_sodium,fish,not_vegan",Aqaba Seafood Supply,canned
+173,Canned Vegetables,NewLand Sliced Black Olives 345 g,1.2,"high_sodium,vegan",Amman Fresh Produce,canned
+174,Canned Vegetables,"Maxims Sweet Corn, 340g",1.5,vegan,Amman Fresh Produce,canned
+175,Canned Vegetables,"American Garden Red Kidney Beans (Easy Open Lids), 400g",0.79,vegan,Amman Fresh Produce,canned
+176,Canned Vegetables,"NewLand Crushed Italian Tomatoes, 400g",1.17,non_food,Amman Fresh Produce,canned
+177,Canned Vegetables,NewLand American Black Beans 432 g,1.45,vegan,Amman Fresh Produce,canned
+178,Canned Vegetables,"Luna Red Kidney Beans, 380g",0.76,vegan,Amman Fresh Produce,canned
+179,Canned Vegetables,"California Garden Whole Kernal Sweet Corn, 400g",1.05,vegan,Amman Fresh Produce,canned
+180,Canned Vegetables,Albayrouty Mushroom Slices 400 g,1.05,vegan,Amman Fresh Produce,canned
+181,Canned Vegetables,Albayrouty Sweet Corn 340 g,1.05,vegan,Amman Fresh Produce,canned
+182,Canned Vegetables,Durra Hummus Grains 400 g,0.68,vegan,Amman Fresh Produce,canned
+183,Canned Fruit,"American Garden Blueberry Topping & Filling, No Artificial Colors or Flavors, 595g",4.9,vegan,Amman Fresh Produce,canned
+184,Canned Fruit,"American Garden Strawberry Topping & Filling, No Artificial Flavors, 595g",4.75,vegan,Amman Fresh Produce,canned
+185,Canned Fruit,NewLand Pineapple Slices In Light Syrup 565 g,1.89,vegan,Amman Fresh Produce,canned
+186,Canned Fruit,"Morrisons Apricot Halves in Juice, 410g",4.39,"high_sugar,vegan",Levant Beverage Distributors,canned
+187,Canned Meat,NewLand Chicken Hot Dog 400 g,1.6,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+188,Canned Meat,Unium Chicken Luncheon Meat 800 g,3.15,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+189,Canned Meat,"Siniora Beef Luncheon, 200g",1.05,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+190,Canned Meat,Siniora Beef Hot Dog 415 g,1.09,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+191,Canned Meat,"Exeter Canned Corned Beef, 340g",2.35,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+192,Canned Meat,Zwan Chicken Hotdogs Ã— 2 Special Offer,4.5,"meat,not_vegan",Pantry Partners Jordan,canned
+193,Canned Meat,"Unium Chicken Hot Dog, 415g",1.45,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+194,Canned Meat,Unium Luncheon Meat 500 g,2.3,"high_sodium,meat,not_vegan",Pantry Partners Jordan,canned
+195,Canned Fruit,Maxim's Mushrooms 425 g 3+1,6.35,vegan,Amman Fresh Produce,canned
+196,Canned Fruit,Maxims Sweet Corn 180 g 3 pcs get 1 pc Free,3.79,vegan,Amman Fresh Produce,canned
+197,Canned Fruit,Al-Bayrouti Chick Peas 3x400g,1.5,vegan,Amman Fresh Produce,canned
+198,Canned Fruit,"Pomi Whole Peeled Tomatoes, 400g",1.75,non_food,Amman Fresh Produce,canned
+199,water,"Nestle Mineral Water, 6x1.5L",2.2,vegan,Levant Beverage Distributors,beverages
+200,water,"Sama Mineral Water, 12x600ml",1.43,vegan,Levant Beverage Distributors,beverages
+201,water,"Kinza Soda Water Can, 250ml",0.36,vegan,Levant Beverage Distributors,beverages
+202,water,Crystal Ice Cubes 2 kg,0.99,vegan,Levant Beverage Distributors,beverages
+203,Soft Drinks,"Kinza Zero Sugar Lemon Soft Drink Can, 250ml",0.25,"sugar_free,vegan",Levant Beverage Distributors,beverages
+204,Soft Drinks,"Jordina Joy Cola, 1L",0.6,"high_sugar,vegan",Levant Beverage Distributors,beverages
+205,Soft Drinks,"Canary Tutti Frutti Sugar Free Sparkling Drink, 330ml",0.3,"sugar_free,vegan",Levant Beverage Distributors,beverages
+206,Soft Drinks,"G Pink Lemonade Flavored Soda, 300ml",0.55,"high_sugar,vegan",Levant Beverage Distributors,beverages
+207,Soft Drinks,"G Mixed Berry Fusion Flavored Soda, 300ml",0.55,"high_sugar,vegan",Levant Beverage Distributors,beverages
+208,Soft Drinks,"G Cherry Pop Sugar Free Flavored Soda, 300ml",0.55,"sugar_free,vegan",Levant Beverage Distributors,beverages
+209,Soft Drinks,"Super Sour Green Apple Carbonated Drink, 250ml",0.35,vegan,Levant Beverage Distributors,beverages
+210,Soft Drinks,"Super Triple Berry Carbonated Drink, 250ml",0.35,vegan,Levant Beverage Distributors,beverages
+211,Soft Drinks,"TT Peach ice Tea, 330ml",0.25,vegan,Levant Beverage Distributors,beverages
+212,Soft Drinks,"Crush Cola Soft Drink Pet Bottle, 1L",0.33,"high_sugar,non_food",Levant Beverage Distributors,beverages
+213,Soft Drinks,"Crush Orange Soft Drink Pet Bottle, 1L",0.33,non_food,Levant Beverage Distributors,beverages
+214,Soft Drinks,"Kinza Lemon Carbonated Drink, 1L",0.4,vegan,Levant Beverage Distributors,beverages
+215,Soft Drinks,"Jordina Joy Orange, 1L",0.6,vegan,Levant Beverage Distributors,beverages
+216,Soft Drinks,"Matrix Fruit Carbonated Drink, 250ml",0.25,non_food,Levant Beverage Distributors,beverages
+217,Soft Drinks,"Kinza Blackcurrant Carbonated Drink Can, 250ml",0.25,vegan,Levant Beverage Distributors,beverages
+218,Specialty Drinks,"Lipton ZeroÂ Tropical Passion Fruit & Mango Ice Tea, 6x320ml",1.55,vegan,Levant Beverage Distributors,beverages
+219,Specialty Drinks,"Barbican Peach Non Alcoholic Malt Beverage Can, 330ml",0.3,vegan,Levant Beverage Distributors,beverages
+220,Specialty Drinks,"Barbican Pomegranate Non Alcoholic Malt Beverage Can, 330ml",0.3,vegan,Levant Beverage Distributors,beverages
+221,Specialty Drinks,"Barbican Passion Fruit Flavour Non-Alcoholic Malt Beverage in Bottle, 330ml",0.55,non_food,Levant Beverage Distributors,beverages
+222,Specialty Drinks,"Barbican Non-Alcoholic Malt Beverage - Apple Flavor, 330ml",0.55,vegan,Levant Beverage Distributors,beverages
+223,Specialty Drinks,"Barbican Non-Alcoholic Malt Beverage Pomegranate Flavor, 330ml",0.55,vegan,Levant Beverage Distributors,beverages
+224,Specialty Drinks,"Barbican Limited Edition Grape Non Alcoholic Malt Beverage, 330ml",0.55,vegan,Levant Beverage Distributors,beverages
+225,Specialty Drinks,Barbican Apple NRB 330 ml 6 pcs,3.4,vegan,Levant Beverage Distributors,beverages
+226,Specialty Drinks,Barbican Pineapple NRB 330 ml 6 pcs,3.4,vegan,Levant Beverage Distributors,beverages
+227,Specialty Drinks,Barbican Regular NRB 330 ml 6 pcs,3.4,vegan,Levant Beverage Distributors,beverages
+228,Specialty Drinks,"Mr. Brown Chocolate Flavor Iced Coffee, 240ml",0.95,"high_sugar,vegan",Levant Beverage Distributors,beverages
+229,Specialty Drinks,"Mr. Brown Sugar Free Ice Coffee, 240ml",0.95,"sugar_free,vegan",Levant Beverage Distributors,beverages
+230,Specialty Drinks,"Mr. Brown Macadamia Nut Iced Coffee, 240ml",0.95,"high_sugar,vegan",Levant Beverage Distributors,beverages
+231,Specialty Drinks,"Dunkin Caramel Iced Coffee, 180ml",1,"high_sugar,vegan",Levant Beverage Distributors,beverages
+232,Specialty Drinks,"KDD Milk Coffee Latte, 250ml",0.7,"dairy,not_vegan",Jordan Dairy Co.,beverages
+233,Specialty Drinks,"Baladna Coffee with Milk Low Fat Cow Milk, 250ml",0.8,"dairy,not_vegan",Jordan Dairy Co.,beverages
+234,Specialty Drinks,"Mr. Brown Apple Flavor Iced Tea, 580ml",1,vegan,Levant Beverage Distributors,beverages
+235,Specialty Drinks,"Freez Strawberry Carbonated Drink, 275ml",1,vegan,Levant Beverage Distributors,beverages
+236,Specialty Drinks,"Freez Berry Drink, 275ml",1,vegan,Levant Beverage Distributors,beverages
+237,Specialty Drinks,"Freez Blue Hawaii Tropical Fruits Flavored Carbonated Drink, 275ml",1,vegan,Levant Beverage Distributors,beverages
+238,Specialty Drinks,"Freez Kiwi & Lime Flavored Carbonated Drink, 275ml",1,vegan,Levant Beverage Distributors,beverages
+239,Specialty Drinks,"Freez Blue Hawai Zero Sugar Drink, 275ml",1,"sugar_free,vegan",Levant Beverage Distributors,beverages
+240,Specialty Drinks,"Freez Mango & Peach Zero Sugar Drink, 275ml",1,"sugar_free,vegan",Levant Beverage Distributors,beverages
+241,Specialty Drinks,"City Cafe Hazelnut Ice Coffee, 180ml",0.45,"high_sugar,tree_nuts,vegan",Levant Beverage Distributors,beverages
+242,Specialty Drinks,"City Cafe Original Ice Coffee Can, 180ml",0.45,"high_sugar,vegan",Levant Beverage Distributors,beverages
+243,Specialty Drinks,"City Cafe Vanilla Iced Coffee, 180ml",0.45,"high_sugar,vegan",Levant Beverage Distributors,beverages
+244,Sports & Energy Drinks,"Red Bull Energy Drink, 250ml",1.6,vegan,Levant Beverage Distributors,beverages
+245,Sports & Energy Drinks,"Boom Boom Energy Drink, 355ml",0.75,vegan,Levant Beverage Distributors,beverages
+246,Sports & Energy Drinks,"Monster Ultra Fiesta Energy Drink, 500ml",2.2,vegan,Levant Beverage Distributors,beverages
+247,Sports & Energy Drinks,Monster Energy Drink Ultra Rosa 500Ml,2.2,vegan,Levant Beverage Distributors,beverages
+248,Sports & Energy Drinks,"Monster Energy Drink, 500ml",2.2,vegan,Levant Beverage Distributors,beverages
+249,Sports & Energy Drinks,"Monster Ultra Paradise Sugar Free Energy Drink, 500ml",2.2,"sugar_free,vegan",Levant Beverage Distributors,beverages
+250,Sports & Energy Drinks,BM Energy Drink 250 ml,0.5,vegan,Levant Beverage Distributors,beverages
+251,Sports & Energy Drinks,"Red Bull Energy Drink Watermelon, 250ml",1.6,vegan,Levant Beverage Distributors,beverages
+252,Sports & Energy Drinks,"Red Bull Energy Drink Sugar Free, 4x250ml",6.43,"sugar_free,vegan",Levant Beverage Distributors,beverages
+253,Sports & Energy Drinks,"Red Bull Energy Drink, 4x250ml",6.43,vegan,Levant Beverage Distributors,beverages
+254,Sports & Energy Drinks,"Baladna High Protein Vanilla Milk, 250ml",1.25,"dairy,not_vegan",Jordan Dairy Co.,beverages
+255,Sports & Energy Drinks,"Almarai Vanilla Fat Free Protein Milk No Added Sugar, 400ml",1.62,"sugar_free,dairy,not_vegan",Jordan Dairy Co.,beverages
+256,Sports & Energy Drinks,"Almarai Strawberry Banana Fat Free Protein Milk No Added Sugar, 400ml",1.62,"sugar_free,dairy,not_vegan",Jordan Dairy Co.,beverages
+257,Juices,"Almarai Mixed Fruit Juice, 1.4L",2,"high_sugar,vegan",Levant Beverage Distributors,beverages
+258,Juices,"Almarai Mixed Berry Juice, 1.4L",2,"high_sugar,vegan",Levant Beverage Distributors,beverages
+259,Juices,"Almarai Mango Juice, 1L",1.25,"high_sugar,vegan",Levant Beverage Distributors,beverages
+260,Juices,"Almarai Mixed Fruit Juice, 200ml",0.3,"high_sugar,vegan",Levant Beverage Distributors,beverages
+261,Juices,"KDD Mango Nectar, 1L",1.33,"high_sugar,vegan",Levant Beverage Distributors,beverages
+262,Juices,"KDD Long Life Apple Juice, 1L",1.33,"high_sugar,vegan",Levant Beverage Distributors,beverages
+263,Juices,"Al Rabie Orange Juice, 1L",1.55,"high_sugar,vegan",Levant Beverage Distributors,beverages
+264,Juices,"Al Rabie Orange Juice, 1L",1.55,"high_sugar,vegan",Levant Beverage Distributors,beverages
+265,Chocolate,"Snickers Chocolate Bar Filled with Caramel & Peanuts, 40g",0.6,"high_sugar,peanut,vegan",Levant Beverage Distributors,snacks
+266,Chocolate,"Bounty Coconut Milk Chocolate Bar, 50g",0.65,"high_sugar,tree_nuts,dairy,not_vegan",Jordan Dairy Co.,snacks
+267,Chocolate,"Kinder Bueno Milk Chocolate Bar in Wafer with Hazelnut Cream, 43g",0.75,"high_sugar,gluten,tree_nuts,dairy,not_vegan",Jordan Dairy Co.,snacks
+268,Chocolate,"Kinder Chocolate Milk Chocolate Bars With Milky Filling (4 Bars), 50g",0.6,"high_sugar,dairy,not_vegan",Jordan Dairy Co.,snacks
+269,Chocolate,"Galaxy Smooth Milk Chocolate Bar,Â 30g",0.77,"high_sugar,dairy,not_vegan",Jordan Dairy Co.,snacks
+270,Chocolate,"Galaxy Caramel Chocolate Bar, 34g",0.77,"high_sugar,vegan",Levant Beverage Distributors,snacks
+271,Chocolate,"Galaxy Hazelnut Chocolate Bar, 30g",0.77,"high_sugar,tree_nuts,vegan",Levant Beverage Distributors,snacks
+272,Chocolate,"Galaxy Crispy Chocolate Bar,Â 30g",0.77,"high_sugar,vegan",Levant Beverage Distributors,snacks
+273,Chocolate,"Galaxy Dark Truffle Dark Chocolate Bar, 33g",0.77,"high_sugar,vegan",Levant Beverage Distributors,snacks
+274,Chocolate,"Nestle Kitkat Hazelnut 4 Fingers Chocolate, 41.5g",0.8,"high_sugar,tree_nuts,vegan",Levant Beverage Distributors,snacks
+275,Chocolate,"Kinder Joy Chocolate Egg for Boys Assorted, 20g",0.7,"high_sugar,egg,not_vegan",Jordan Dairy Co.,snacks
+276,Chocolate,Said Junior Cup 50 g,0.75,"high_sugar,vegan",Pantry Partners Jordan,snacks
+277,Chocolate,"Ozmo Milk Chocolate Egg Shapes, 20g",0.75,"high_sugar,dairy,not_vegan,egg",Jordan Dairy Co.,snacks
+278,Chocolate,"Ozmo Fun Shape Milk Chocolate Lollipop, 23g",0.6,"high_sugar,dairy,not_vegan",Jordan Dairy Co.,snacks
+279,Chocolate,"Ozmo Hoppo Biscuit Filled with Chocolate Cream, 40g",0.6,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+280,Chocolate,"Ferrero Rocher Fine Crunchy Hazelnuts Dipped in Smooth Milk Chocolate, (3 Pieces), 37.5g",1,"high_sugar,tree_nuts,dairy,not_vegan",Jordan Dairy Co.,snacks
+281,Chocolate,"Raffaello Premium Coconut & Almond Pralines, 30g",0.9,"high_sugar,tree_nuts,vegan",Pantry Partners Jordan,snacks
+282,Chocolate,"Storck Toffifee Hazelnut In Caramel Candy, 125g",2.15,"high_sugar,tree_nuts,vegan",Pantry Partners Jordan,snacks
+283,Chocolate,"Galaxy Minstrels Chocolate, 42g",1.09,"high_sugar,vegan",Levant Beverage Distributors,snacks
+284,Chocolate,"Kinder Happy Hippo Biscuits with Double Cream Filling, 103.5g",1.95,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+285,Chocolate,"Nutella B-Ready Chocolate Wafer Bar (6 Bars), 132g",2.25,"high_sugar,gluten,vegan",Levant Beverage Distributors,snacks
+286,Chocolate,Mythic Sensation Mini Milk Chocolate 30 g,0.55,"high_sugar,dairy,not_vegan",Jordan Dairy Co.,snacks
+287,Chocolate,"Milka Choco Wafer, (5 Pieces), 150g",2.31,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+288,Chocolate,"Galaxy Jewels Assorted Chocolate Box, 650g",17.3,"high_sugar,vegan",Levant Beverage Distributors,snacks
+289,Chocolate,"Choco Lake Diamond Twist Kunafa with Peanut Butter Filling, 450g",4.99,"high_sugar,peanut,dairy,not_vegan",Jordan Dairy Co.,snacks
+290,Chocolate,Choco Lake Choco Biscuits 650G,3,"high_sugar,gluten,vegan",Pantry Partners Jordan,snacks
+291,Chips,"Mr.Chips Bugles Cheese Flavor Corn Snacks, 33g",0.3,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+292,Chips,"Smart Chips Ketchup Flavor Stix, 75g",1.28,"high_sodium,vegan",Pantry Partners Jordan,snacks
+293,Chips,"Smart Chips Crunchy Rings Pizza Flavor, 80g",1,"gluten,high_sodium,vegan",Pantry Partners Jordan,snacks
+294,Chips,"Mr.Chips Waves Smoky Bbq Chips, 50g",0.65,"high_sodium,vegan",Pantry Partners Jordan,snacks
+295,Chips,"Mr.Chips Waves Grilled Burger Chips, 50g",0.65,"high_sodium,meat,not_vegan",Pantry Partners Jordan,snacks
+296,Chips,"Mr.Chips Waves Honey Mustard Chips, 50g",0.65,"high_sodium,vegan",Pantry Partners Jordan,snacks
+297,Chips,"Mr.Chips Paprika Potato Chips, 68g",0.6,"high_sodium,vegan",Pantry Partners Jordan,snacks
+298,Chips,"Mr.Chips Salt & Vinegar Potato Chips, 68g",0.6,"high_sodium,vegan",Pantry Partners Jordan,snacks
+299,Chips,"Mr.Chips Cheese Potato Chips, 68g",0.6,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+300,Chips,"Mr.Chips Chilli Potato Chips, 68g",0.6,"high_sodium,vegan",Pantry Partners Jordan,snacks
+301,Chips,"Mr.Chips Paprika Snack Mix, 78g",0.6,"high_sodium,vegan",Pantry Partners Jordan,snacks
+302,Chips,"Mr.Chips Cheese Pop Corn, 58g",0.65,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+303,Chips,"Cheetos Crunchy Flaming Hot Chips, 115g",1,"high_sodium,vegan",Pantry Partners Jordan,snacks
+304,Chips,"Lay's Salt & Vinegar Chips, 110g",1,"high_sodium,vegan",Pantry Partners Jordan,snacks
+305,Chips,"Lay's Tomato Ketchup Potato Chips, 110g",1,"high_sodium,non_food",Pantry Partners Jordan,snacks
+306,Chips,"Lay's Chili Potato Chips, 110g",1,"high_sodium,vegan",Pantry Partners Jordan,snacks
+307,Chips,"Lay's French Cheese Potato Chips, 110g",1,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+308,Chips,"Doritos Nacho Cheese Tortilla Chips, 120g",1,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+309,Chips,"Doritos Sweet Chili Pepper Tortilla Chips, 120g",1,"high_sodium,vegan",Pantry Partners Jordan,snacks
+310,Chips,"Pringles BBQ Chips Can, 165g",1.7,"high_sodium,vegan",Pantry Partners Jordan,snacks
+311,Chips,"Pringles Salt & Vinegar Chips Can, 165g",1.7,"high_sodium,vegan",Pantry Partners Jordan,snacks
+312,Chips,"Pringles Sour Cream & Onion Chips Can, 165g",1.7,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+313,Chips,"Mr.Chips Crocodile Cheese & Pizza Flavor Snack, 58g",0.25,"gluten,high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+314,Chips,"Mr.Chips Pizza Flavor Corn Chips, 58g",0.25,"gluten,high_sodium,vegan",Pantry Partners Jordan,snacks
+315,Chips,"Mr.Chips Disco Cheddar Cheese Flavor Snack, 58g",0.25,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+316,Chips,"Hala Cheezers Twist Chips, 30g",0.1,"high_sodium,vegan",Pantry Partners Jordan,snacks
+317,Chips,"Spuds Sour Cream & Onion Craft Cooked Chips, 65g",0.75,"high_sodium,dairy,not_vegan",Jordan Dairy Co.,snacks
+318,Chips,"Spuds Prime Ribs Craft Cooked Chips, 65g",0.75,"high_sodium,vegan",Pantry Partners Jordan,snacks
+319,Chips,"Spuds Sweet & Chilli Salsa Craft Cooked Chips, 65g",0.75,"high_sodium,vegan",Pantry Partners Jordan,snacks
+320,Chips,"Spuds Tomato Bruschetta Craft Cooked Chips, 65g",0.75,"high_sodium,non_food",Pantry Partners Jordan,snacks
+321,Cakes and Rolls,"Molto XL Croissant Chocolate With Hazelnut, 42.5g",0.25,"high_sugar,gluten,tree_nuts,vegan",Bakery Wholesale Hub,snacks
+322,Cakes and Rolls,"Eti Aditco Chocolate Cake, 36g",0.39,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+323,Cakes and Rolls,"Eti PopkekÂ Cocoa Cake, 35g",0.3,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+324,Cakes and Rolls,"Eti Adicto Gold Mini Chocolate Brown Cake, 180g",1.7,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+325,Cakes and Rolls,"Eti Pop Kek Mini Cake with Dark Chocolate, 144g",1.6,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+326,Cakes and Rolls,"Eti Pop Kek Cocoa Cake, 200g",1.95,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+327,Cakes and Rolls,"Americana Marble Pound Cake, 300g",1.9,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+328,Cakes and Rolls,"Americana Orange Pound Cake, 300g",1.9,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+329,Cakes and Rolls,"Americana Chocolate Pound Cake, 300g",1.9,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+330,Cakes and Rolls,"L'usine Cupcakes Filled with Chocolate Cream, 18x30g",1.8,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+331,Cakes and Rolls,"L'usine Soft Cupcakes Filled with Strawberry Cream, 18x30g",1.8,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+332,Cakes and Rolls,"L'usine Vanilla Cupcakes, 18x30g",1.8,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+333,Cakes and Rolls,"Bifa Keks Roll Cake with Cocoa Cream, 50g",0.25,"high_sugar,gluten,dairy,not_vegan",Jordan Dairy Co.,snacks
+334,Cakes and Rolls,"Bifa Keks Roll Black and White Cake, 50g",0.25,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+335,Cakes and Rolls,"Bifa Keks Cocoa Oval Banana Sauce Cake, 45g",0.25,"high_sugar,gluten,high_sodium,vegan",Bakery Wholesale Hub,snacks
+336,Cakes and Rolls,"Barni Chocolate Cake, 30g",0.4,"high_sugar,gluten,vegan",Bakery Wholesale Hub,snacks
+337,Burger Buns,"Alyoum Burger Buns, 6 Pieces",0.55,"gluten,high_sodium,meat,not_vegan",Bakery Wholesale Hub,bakery
+338,Burger Buns,"Alyoum Burger Buns with Sesame Seeds, 6 Pieces",0.55,"gluten,high_sodium,meat,not_vegan",Bakery Wholesale Hub,bakery
+339,Flatbread,"Reef Diet Flax Seeds Bread, 250g",1,"gluten,vegan",Bakery Wholesale Hub,bakery
+340,back to school,"Cool Gear Cactus Water Bottle with Freeze Stick, 650ml",3.75,non_food,Levant Beverage Distributors,other
+341,back to school,"Cool Gear Water Bottle - Pink, 650ml",3.75,non_food,Levant Beverage Distributors,other
+342,back to school,Sistema 1.25L Bento Cube Lunch Blue,11.2,non_food,Pantry Partners Jordan,other
+343,back to school,Sistema Bento Box Cube To Go Green 1.25 L,11.2,non_food,Pantry Partners Jordan,other
+344,back to school,"Faber-Castell Magic Color Pen Washable, 20 Colors",2.68,non_food,Pantry Partners Jordan,other
+345,back to school,Faber Castell Classic Color Pencil Hang Tab 24 Color,5.2,non_food,Pantry Partners Jordan,other
+346,back to school,Maped Study Unbreakable Ruler,0,non_food,Pantry Partners Jordan,other
+347,back to school,Amigo Colorful Pencils Set 12 pcs + 1 Sharpener,1.5,non_food,Pantry Partners Jordan,other
+348,ramadan,"Ramadan Mosque Decoration, 50 cm",0.75,non_food,Pantry Partners Jordan,other
+349,ramadan,Black Mini Decorative Lantern,2,non_food,Pantry Partners Jordan,other
+350,ramadan,Ramadan LED String Lights,1.5,vegan,Pantry Partners Jordan,other
+351,ramadan,Set of 2 Ramadan Serving Trays,8.5,vegan,Pantry Partners Jordan,other
+352,ramadan,"Small Ramadan Serving Plate (15 cm) â€“ Mosque, Crescent & Star Design for Dates and Treats",5,non_food,Pantry Partners Jordan,other
+353,ramadan,"Ramadan Decorative Metal Crescent â€“ 80 cm, Black, with LED Lights and Hanging Stars",5.5,vegan,Pantry Partners Jordan,other
+354,ramadan,"Islamic Ramadan Mihrab Decor Piece â€“ 21 cm, Mosque Design with Stone-Like Texture",2.2,vegan,Pantry Partners Jordan,other
+355,ramadan,Ramadan Decorative Tissue Box â€“ Boy & Girl Design,1,vegan,Pantry Partners Jordan,other
+356,ramadan,"Coloring Prayer Mat for Kids â€“ Ramadan Edition, Blue, Washable, Portable Gift Set",4,non_food,Pantry Partners Jordan,other
+357,ramadan,Set of 5 Ramadan Sofa Cushion Covers,1,non_food,Pantry Partners Jordan,other
+358,Eid al-Fitr,Ramadan Advent Calendar 30 Days Countdown Calendars,3,vegan,Pantry Partners Jordan,other
+359,Eid al-Fitr,Wood Ramadan Decorations for Home Islamic Eid Mubarak Kareem Table,1,non_food,Pantry Partners Jordan,other
+360,Eid al-Fitr,Gold Ramadan Star-Moon Party-Decorations Garland - 12pcs,3.3,non_food,Pantry Partners Jordan,other
+361,Jordan Independence Day,Jordanian Flag Banner String (4 m) â€“ Large Flags,2.5,non_food,Pantry Partners Jordan,other
+362,Jordan Independence Day,Car Cover with Jordan Flag Design (2.5 Ã— 1.2 m),10.5,non_food,Pantry Partners Jordan,other
+363,Jordan Independence Day,"Jordan Stick Flag Jordanian Small Mini Hand Held Flags,5x8 Inch,12 Pack",3,non_food,Pantry Partners Jordan,other
+364,Jordan Independence Day,"Euroscarves Jordan Soccer Knit Scarf, fits all",2.5,vegan,Pantry Partners Jordan,other
+365,Jordan Independence Day,4 Pack Jordan Flag Silicone Wristbands,3.5,non_food,Pantry Partners Jordan,other
+366,Jordan Independence Day,Nipitshop Patches Jordan Country Flag Embroidered National Emblem Patch Clothes,1.5,non_food,Pantry Partners Jordan,other
+367,World Cup,"48 Countries Flag Banner Garland Bunting, Decorations for 2026 World Cup Soccer Fans",4,"gluten,non_food",Bakery Wholesale Hub,other
+368,World Cup,Football adidas World Cup 26,8,vegan,Pantry Partners Jordan,other
+369,World Cup,"9 PCS 4D Soccer Balloons, Large Gold Trophy Balloon",2.3,non_food,Pantry Partners Jordan,other
+370,World Cup,Soccer 50 FT Smart Outdoor String Lights Waterproof,1.9,vegan,Levant Beverage Distributors,other
+371,World Cup,Official Jordan National Team Home Jersey,20,non_food,Levant Beverage Distributors,other
+372,World Cup,World Soccer Party Decorations,1.8,non_food,Pantry Partners Jordan,other
+373,Christmas,Christmas Coloring Art Set.,0.6,non_food,Pantry Partners Jordan,other
+374,Christmas,Christmas Coloring Book by Kappa.,2,non_food,Pantry Partners Jordan,other
+375,Christmas,"3 Mini Santa Hat Covers for Spoons, Bottles, and Christmas Table Decorations.",1.5,non_food,Pantry Partners Jordan,other
+376,Christmas,Magic Christmas Tree Felt Sticker,0.5,non_food,Pantry Partners Jordan,other
+377,Christmas,Decora Christmas Cookie Cutter Set.,1.5,"high_sugar,gluten,vegan",Pantry Partners Jordan,other
+378,Christmas,"Eid Gift Basket with Santa Mug, Teddy Bear, and Socks",5,non_food,Pantry Partners Jordan,other
+379,Christmas,Christmas Tree Set by Generation with Lights & Decorations â€“ Holiday Decor for 18-Inch Dolls,7,non_food,Pantry Partners Jordan,other
+380,Christmas,"Childrenâ€™s Santa Hat â€“ Ages 1 to 7, Size 28 Ã— 36 cm",1,non_food,Pantry Partners Jordan,other
+381,Christmas,8-Piece Festive Photo Booth Props Set for Christmas & New Year,2.5,non_food,Pantry Partners Jordan,other
+382,Christmas,Christmas Train Set with Lights and Sound | Electric Train Model for Kids (3+),9.2,vegan,Pantry Partners Jordan,other
+383,Christmas,Cardboard Christmas Gift Bag,0.5,non_food,Pantry Partners Jordan,other
+384,Eid al-Adha,Eid al-Adha Giveaways,0.75,vegan,Pantry Partners Jordan,other
+385,Eid al-Adha,Eid al-Adha (The Big Book Series) â€“ Sama Publishing House,0.7,non_food,Pantry Partners Jordan,other
+386,Eid al-Adha,"White Plastic Sheep Toy Figure, 30 Ã— 25 cm",2.2,non_food,Pantry Partners Jordan,other
+387,Eid al-Adha,Leinuosen Wood Eid Al Adha Decoration Mubarak Wooden Pendant,2,non_food,Pantry Partners Jordan,other
+388,Eid al-Adha,"8PCS Eid Mubarak Balloons,Eid Al Adha Decorations",2,non_food,Pantry Partners Jordan,other
+389,Eid al-Adha,SWYOUN 48PCS Eid Al Adha Cupcake Topper Party Decorations,0.75,"high_sugar,gluten,non_food",Bakery Wholesale Hub,other
+390,Eid al-Adha,3 Pcs Eid Mubarak Decorations Ramadan Wooden Table Centerpieces,1.5,non_food,Pantry Partners Jordan,other
+391,Eid al-Adha,Wood Eid Al Adha Decoration,1.5,non_food,Pantry Partners Jordan,other
+392,Eid al-Fitr,Coloring Book as an Eid Gift,0,non_food,Pantry Partners Jordan,other
+393,Eid al-Fitr,Eid Mubarak Decorations Set,2,non_food,Pantry Partners Jordan,other
+394,Eid al-Fitr,96 Pcs Eid Mubarak Decorations for Home 24 Servings with Festival Paper Plates,3.75,non_food,Pantry Partners Jordan,other
+395,Eid al-Fitr,18inch Gold Arabic Eid Mubarak Letter Mylar Balloons,1.8,non_food,Pantry Partners Jordan,other
+396,Eid al-Fitr,10 Pcs Printed Eid Mubarak Eidi Envelopes,1,non_food,Pantry Partners Jordan,other
+397,Eid al-Fitr,Clysee 24 Pcs Eid Mubarak Reusable Gift Bags With Handles,3,non_food,Pantry Partners Jordan,other
+398,Eid al-Fitr,Decorations Set,3.2,non_food,Pantry Partners Jordan,other

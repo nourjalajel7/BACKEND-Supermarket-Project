@@ -99,7 +99,7 @@ const register = async (req, res) => {
 // Bootstrap admin user
 const bootstrapAdmin = async (req, res) => {
   try {
-    const { name, password, bootstrapKey } = req.body;
+    const { name, password, phone, address, bootstrapKey } = req.body;
     const email = req.body.email ? normalizeEmail(req.body.email) : "";
     const expectedKey = process.env.BOOTSTRAP_ADMIN_KEY;
 
@@ -118,6 +118,8 @@ const bootstrapAdmin = async (req, res) => {
     if (user) {
       user.name = name;
       user.password = password;
+      user.phone = phone;
+      user.address = address;
       user.role = "admin";
       user.isEmailVerified = true;
       user.emailVerifiedAt = new Date();
@@ -129,6 +131,8 @@ const bootstrapAdmin = async (req, res) => {
         name,
         email,
         password,
+        phone,
+        address,
         role: "admin",
         isEmailVerified: true,
         emailVerifiedAt: new Date(),
